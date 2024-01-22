@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
-    public new Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
 
-    private bool isMoving;
+    public bool isMoving;
     public float isMovingThreshold;
+    public bool isOnAir;
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
@@ -23,12 +25,30 @@ public class PlayerController : MonoBehaviour
         Instance = this;
         playerAttribute = GetComponent<PlayerAttribute>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-        gameState = GameState.Pause;
+
+    }
+
+    private void Update()
+    {
+        GetKeyDown();
     }
     private void FixedUpdate()
     {
-        Movement();
+        if (gameState == GameState.Gaming)
+        {
+            Time.timeScale = 1;            
+            Movement();
+            if (getHitCounter > 0)
+            {
+                getHitCounter -= Time.deltaTime;
+            }
+        }
+        else if (gameState == GameState.Pause)
+        {
+            Time.timeScale = 0;            
+        }
     }
+
     //½ÇÉ«ÒÆ¶¯
     public void Movement()
     {
@@ -56,6 +76,22 @@ public class PlayerController : MonoBehaviour
             //animator.SetBool("isMoving", isMoving);
         }
     }
+    public void Jump()
+    {
+        rigidbody2D.AddForce(transform.up * playerAttribute.jumpForce, ForceMode2D.Impulse);
+    }
+    private void GetKeyDown()
+    {
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            if (GetComponent<PhysicsCheck>().isOnGround==true)
+            {
+                Jump();
+            }
+        }
+    }
+
+    
 }
 
 public enum GameState
