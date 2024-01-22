@@ -49,18 +49,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //½ÇÉ«ÒÆ¶¯
+    //Player Movement
     public void Movement()
     {
         Vector3 moveInput = new Vector3(0f, 0f, 0f);
-        //moveInput.x = Input.GetAxisRaw("Horizontal");
-        //moveInput.y = Input.GetAxisRaw("Vertical");
-        //moveInput.Normalize();
         if (rigidbody2D.velocity.magnitude > isMovingThreshold||Mathf.Abs(Input.GetAxisRaw("Horizontal"))>0)
         {
             isMoving = true;
             rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed * Time.deltaTime,rigidbody2D.velocity.y);
-            //animator.SetBool("isMoving", isMoving);
+
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
                 playerSprite.transform.localScale = new Vector3(Mathf.Abs(playerSprite.transform.localScale.x), playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
@@ -73,7 +70,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             isMoving = false;
-            //animator.SetBool("isMoving", isMoving);
         }
     }
     public void Jump()
