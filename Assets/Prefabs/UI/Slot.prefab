@@ -237,7 +237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8943551456124495464}
         m_TargetAssemblyTypeName: Slot, Assembly-CSharp
-        m_MethodName: RefreshBagSlotInfo
+        m_MethodName: RefreshItemIntroduction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 7037983415132653781}
   - component: {fileID: 1428303283454136353}
   - component: {fileID: 8060902686428265798}
+  - component: {fileID: 1784011306589210417}
   m_Layer: 0
   m_Name: AmountText
   m_TagString: Untagged
@@ -481,3 +482,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &1784011306589210417
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9029596109066473177}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

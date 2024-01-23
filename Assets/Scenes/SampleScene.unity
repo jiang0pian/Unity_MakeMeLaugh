@@ -1117,8 +1117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d2f131f3b14cc42851239052627732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testItem1: {fileID: 0}
-  testItem2: {fileID: 0}
+  testItem1: {fileID: 6656117105130824876, guid: 894550c07a5ea81469e791e19eda2a4e, type: 3}
+  testItem2: {fileID: 5945495982141172601, guid: 1daee440de5dc744ea954fd24e09160f, type: 3}
   testItem3: {fileID: 0}
 --- !u!4 &972922283
 Transform:
@@ -1222,7 +1222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!70 &1015962643
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
-  moveSpeed: 400
+  moveSpeed: 40
 --- !u!4 &1015962647
 Transform:
   m_ObjectHideFlags: 0
@@ -1954,13 +1954,13 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 994925703}
   - {fileID: 519420032}
   - {fileID: 872189980}
   - {fileID: 185712756}
   - {fileID: 861756158}
   - {fileID: 972922283}
   - {fileID: 115535685}
-  - {fileID: 994925703}
   - {fileID: 7533706653827698849}
   - {fileID: 7011573843542039861}
   - {fileID: 1015962647}

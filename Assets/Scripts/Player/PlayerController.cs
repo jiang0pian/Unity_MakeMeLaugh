@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         if (gameState == GameState.Gaming)
         {
             Time.timeScale = 1;
+            
             if (getHitCounter > 0)
             {
                 getHitCounter -= Time.deltaTime;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameState == GameState.Gaming)
         {
-            Movement();            
+            Movement();
         }
         else if (gameState == GameState.Pause)
         {
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             isMoving = true;
             rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed * Time.deltaTime,rigidbody2D.velocity.y);
-
+            //rigidbody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed, 0f), ForceMode2D.Force);
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
                 playerSprite.transform.localScale = new Vector3(Mathf.Abs(playerSprite.transform.localScale.x), playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
@@ -109,5 +110,4 @@ public enum GameState
 {
     Gaming,
     Pause,
-
 }

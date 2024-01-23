@@ -11,6 +11,10 @@ public class Slot : MonoBehaviour
     public Image itemImage;
     public bool isContainedItem = false;
 
+    public void RefreshItemIntroduction()
+    {
+        InventoryManager.Instance.RefreshItemIntroduction(transform.gameObject);
+    }
     public void RefreshBagSlotInfo()
     {
         //Debug.Log("into RefreshSlot");
