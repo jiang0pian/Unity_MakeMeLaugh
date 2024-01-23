@@ -87,7 +87,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    public void SetGameState(GameState newGameState)
+    {
+        gameState = newGameState;
+    }
 }
 
 public enum GameState
