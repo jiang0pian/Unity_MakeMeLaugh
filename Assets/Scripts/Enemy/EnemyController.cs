@@ -91,4 +91,9 @@ public class EnemyController : MonoBehaviour
             lookDirection.x = -1;
         }
     }
+
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.DrawRay()
+    //}
 }
