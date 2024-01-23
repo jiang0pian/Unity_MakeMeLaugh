@@ -31,13 +31,9 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         GetKeyDown();
-    }
-    private void FixedUpdate()
-    {
         if (gameState == GameState.Gaming)
         {
-            Time.timeScale = 1;            
-            Movement();
+            Time.timeScale = 1;
             if (getHitCounter > 0)
             {
                 getHitCounter -= Time.deltaTime;
@@ -45,7 +41,18 @@ public class PlayerController : MonoBehaviour
         }
         else if (gameState == GameState.Pause)
         {
-            Time.timeScale = 0;            
+            Time.timeScale = 0;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (gameState == GameState.Gaming)
+        {
+            Movement();            
+        }
+        else if (gameState == GameState.Pause)
+        {
+
         }
     }
 
