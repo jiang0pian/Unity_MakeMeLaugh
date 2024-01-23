@@ -25,7 +25,8 @@ public class BagController : MonoBehaviour
         else
         {
             isBagOpen = false;
-            Bag.SetActive(false);            
+            Bag.SetActive(false);
+            PlayerController.Instance.SetGameState(GameState.Gaming);
         }
     }
 }

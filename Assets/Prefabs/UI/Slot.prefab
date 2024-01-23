@@ -94,8 +94,8 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
-  amountText: {fileID: 0}
-  itemImage: {fileID: 0}
+  amountText: {fileID: 8060902686428265798}
+  itemImage: {fileID: 7639589745493399594}
   isContainedItem: 0
 --- !u!1 &5176655351999571721
 GameObject:

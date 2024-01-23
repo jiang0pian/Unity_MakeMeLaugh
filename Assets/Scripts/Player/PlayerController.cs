@@ -85,6 +85,11 @@ public class PlayerController : MonoBehaviour
                 Jump();
             }
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            BagController.Instance.OpenAndCloseBag();
+        }
+
     }
 
     public void SetGameState(GameState newGameState)
