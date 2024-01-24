@@ -19,7 +19,13 @@ public class PlayerController : MonoBehaviour
     public PlayerAttribute playerAttribute;
 
     public GameState gameState;
+    
+    private Animator animator;
 
+void Start()
+{
+    animator = GetComponent<Animator>();
+}
     private void Awake()
     {
         Instance = this;
@@ -43,6 +49,16 @@ public class PlayerController : MonoBehaviour
         else if (gameState == GameState.Pause)
         {
             Time.timeScale = 0;
+        }
+        if (isMoving)
+        {
+        // 切换到走路动画
+        animator.SetBool("iswalk", true);
+        }
+        else
+        {
+        // 切换到站立动画
+        animator.SetBool("iswalk", false);
         }
     }
     private void FixedUpdate()
