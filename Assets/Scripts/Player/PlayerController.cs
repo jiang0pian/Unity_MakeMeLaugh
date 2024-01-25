@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
+    //人物朝向
+    public Vector2 lookDirection;
+
     public Animator animator;
     public GameObject playerSprite;
     public PlayerAttribute playerAttribute;
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
         Instance = this;
         playerAttribute = GetComponent<PlayerAttribute>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-
+        lookDirection = new Vector2(1, 0);
     }
 
     private void Update()
@@ -80,10 +83,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetAxisRaw("Horizontal") > 0f)
             {
                 playerSprite.transform.localScale = new Vector3(Mathf.Abs(playerSprite.transform.localScale.x), playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
+                //更新人物朝向
+                lookDirection.x = 1f;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0f)
             {
                 playerSprite.transform.localScale = new Vector3(-1 * Mathf.Abs(playerSprite.transform.localScale.x), playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
+                //更新人物朝向
+                lookDirection.x = -1f;
             }
         }
         else
@@ -108,6 +115,11 @@ public class PlayerController : MonoBehaviour
         {
             BagController.Instance.OpenAndCloseBag();
         }
+        //按下 F 键冲刺
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    StartCoroutine(ColarScript.Instance.Spurt());
+        //}
 
     }
 

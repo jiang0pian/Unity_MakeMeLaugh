@@ -1390,6 +1390,7 @@ MonoBehaviour:
   getHitTimeInterval: 0.5
   getHitCounter: 0
   animator: {fileID: 0}
+  lookDirection: {x: 0, y: 0}
   playerSprite: {fileID: 1740135775}
   playerAttribute: {fileID: 861756156}
   gameState: 0
@@ -1503,6 +1504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972922283}
   - component: {fileID: 972922282}
+  - component: {fileID: 972922284}
   m_Layer: 0
   m_Name: TestObject
   m_TagString: Untagged
@@ -1540,6 +1542,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972922284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972922281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35afb55404d3d2e4c83abc91822a6c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemSprite: {fileID: 0}
+  itemType: 
+  itemPrefab: {fileID: 0}
+  isStackable: 0
+  itemInfo: 
+  spurtForce: 40
 --- !u!1 &994925700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,7 +1749,7 @@ Transform:
   m_GameObject: {fileID: 1015962642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.08, y: 0.43, z: 0}
+  m_LocalPosition: {x: 20.35, y: -1.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
