@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     public bool isMoving;
     public float isMovingThreshold;
-    public bool isOnAir;
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
@@ -64,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if (gameState == GameState.Gaming)
         {
             Movement();
+            
         }
         else if (gameState == GameState.Pause)
         {
@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
+        
         rigidbody2D.AddForce(transform.up * playerAttribute.jumpForce, ForceMode2D.Impulse);
     }
     private void GetKeyDown()
