@@ -7,28 +7,26 @@ using UnityEngine.AI;
 public class ColarScript : Item
 {
     public static ColarScript Instance { get; private set; }
-    private Rigidbody2D playerRigidbody2D;
-    private PlayerAttribute playerAttribute;
-    public float spurtForce;
+    public float spurtForce = 1f;
+    public int spurtTime = 1;
 
     private void Start()
     {
         Instance = this;
-        playerRigidbody2D = PlayerController.Instance.GetComponent<Rigidbody2D>();
     }
 
 
     public IEnumerator Spurt()
     {
-        Debug.Log("Start");
+        //Debug.Log("Start");
         //playerRigidbody2D.AddForce(PlayerController.Instance.lookDirection * spurtForce * 100);
         float oldSpeed = PlayerController.Instance.playerAttribute.moveSpeed;
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < 20 * spurtTime; i++)
         {
-            PlayerController.Instance.playerAttribute.moveSpeed *= 1.1f;
+            PlayerController.Instance.playerAttribute.moveSpeed *= 1.0f + spurtForce * 0.1f;
             yield return new WaitForSeconds(0.05f);
         }
         PlayerController.Instance.playerAttribute.moveSpeed = oldSpeed;
-        Debug.Log("End");
+        //Debug.Log("End");
     }
 }
