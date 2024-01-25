@@ -14,11 +14,15 @@ public class PlayerController : MonoBehaviour
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
-    //public Animator animator;
+    public Animator animator;
     public GameObject playerSprite;
     public PlayerAttribute playerAttribute;
 
     public GameState gameState;
+      void Start () {
+        animator = GetComponent<Animator>();
+    }
+
 
     private void Awake()
     {
@@ -44,6 +48,13 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+        if(isMoving){ 
+            animator.SetBool("walk", true);
+        }
+        else{
+            animator.SetBool("walk", false);
+        }
+       
     }
     private void FixedUpdate()
     {
