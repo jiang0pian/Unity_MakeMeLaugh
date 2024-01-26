@@ -2891,7 +2891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bagGrid: {fileID: 446017093}
-  bagSlotPrefab: {fileID: 3780219041535788719, guid: 83b000db44d90c64281df23b7ceb2a84, type: 3}
+  bagSlotPrefab: {fileID: 6794658487247548357, guid: 253f1aa4d216b91489755d1f7d71cae6, type: 3}
   slotAmout: 36
   slotLists: []
   itemIntroduction: {fileID: 481290936}
