@@ -1624,7 +1624,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   isStackable: 0
   itemInfo: 
-  spurtForce: 40
+  spurtForce: 1
   spurtTime: 1
 --- !u!1 &994925700
 GameObject:

@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ColarScript : Item
+public class ColarScript : Prop
 {
     public static ColarScript Instance { get; private set; }
     public float spurtForce = 1f;
@@ -14,12 +14,12 @@ public class ColarScript : Item
     {
         Instance = this;
     }
-
-
+    public override void UseProp()
+    {
+        Spurt();
+    }
     public IEnumerator Spurt()
     {
-        //Debug.Log("Start");
-        //playerRigidbody2D.AddForce(PlayerController.Instance.lookDirection * spurtForce * 100);
         float oldSpeed = PlayerController.Instance.playerAttribute.moveSpeed;
         for(int i = 0; i < 20 * spurtTime; i++)
         {
