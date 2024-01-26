@@ -1624,7 +1624,11 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   isStackable: 0
   itemInfo: 
+<<<<<<< Updated upstream
   spurtForce: 40
+=======
+  spurtForce: 2
+>>>>>>> Stashed changes
   spurtTime: 1
 --- !u!1 &994925700
 GameObject:
