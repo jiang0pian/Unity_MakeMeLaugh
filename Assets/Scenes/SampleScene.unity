@@ -1645,7 +1645,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   isStackable: 0
   itemInfo: 
-  addSpeed: 400
+  addSpeed: 800
   durationTime: 2
 --- !u!1 &994925700
 GameObject:
