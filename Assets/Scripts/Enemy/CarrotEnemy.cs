@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class EnemyController : MonoBehaviour
+public class CarrotEnemy : MonoBehaviour
 {
-
     private new Rigidbody2D rigidbody2D;
+
+    public float maxHealth;
+    public float currentHealth;
+    public float moveSpeed;
 
     private bool isFindPlayer;
 
@@ -17,19 +19,16 @@ public class EnemyController : MonoBehaviour
 
     public GameObject enemySprite;
 
-    public EnemyAttribute enemyAttribute;
-
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        enemyAttribute = GetComponent<EnemyAttribute>();
         isFindPlayer = false;
         lookDirection = new Vector2(1, 0);
     }
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -59,7 +58,7 @@ public class EnemyController : MonoBehaviour
             IdleMove();
         }
 
-        rigidbody2D.velocity = new Vector2(lookDirection.x * enemyAttribute.moveSpeed * Time.deltaTime * 10, rigidbody2D.velocity.y);
+        rigidbody2D.velocity = new Vector2(lookDirection.x * moveSpeed * Time.deltaTime * 10, rigidbody2D.velocity.y);
         enemySprite.transform.localScale = new Vector3(lookDirection.x * Mathf.Abs(enemySprite.transform.localScale.x), enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
     }
 
@@ -80,7 +79,7 @@ public class EnemyController : MonoBehaviour
     void AttackMove()
     {
         //¹¥»÷ÒÆ¶¯
-        if(transform.position.x < PlayerController.Instance.transform.position.x)
+        if (transform.position.x < PlayerController.Instance.transform.position.x)
         {
             lookDirection.x = 1;
         }
@@ -97,14 +96,14 @@ public class EnemyController : MonoBehaviour
 
     public void ChangeHealth(float damage)
     {
-        enemyAttribute.currentHealth += damage;
-        if (enemyAttribute.currentHealth < 0)
+        currentHealth += damage;
+        if (currentHealth < 0)
         {
-            enemyAttribute.currentHealth = 0;
+            currentHealth = 0;
         }
-        else if(enemyAttribute.currentHealth > enemyAttribute.maxHealth)
+        else if (currentHealth > maxHealth)
         {
-            enemyAttribute.currentHealth = enemyAttribute.maxHealth;
+            currentHealth = maxHealth;
         }
     }
 }
