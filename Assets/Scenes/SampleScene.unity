@@ -1569,6 +1569,7 @@ GameObject:
   - component: {fileID: 972922283}
   - component: {fileID: 972922282}
   - component: {fileID: 972922284}
+  - component: {fileID: 972922285}
   m_Layer: 0
   m_Name: TestObject
   m_TagString: Untagged
@@ -1626,6 +1627,26 @@ MonoBehaviour:
   itemInfo: 
   spurtForce: 1
   spurtTime: 1
+--- !u!114 &972922285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972922281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ba345621cf1bb45b0238dfc0946d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemSprite: {fileID: 0}
+  itemType: 
+  itemPrefab: {fileID: 0}
+  isStackable: 0
+  itemInfo: 
+  addSpeed: 400
+  durationTime: 2
 --- !u!1 &994925700
 GameObject:
   m_ObjectHideFlags: 0

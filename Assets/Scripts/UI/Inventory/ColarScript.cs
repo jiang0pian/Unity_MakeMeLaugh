@@ -16,7 +16,7 @@ public class ColarScript : Prop
     }
     public override void UseProp()
     {
-        Spurt();
+        StartCoroutine(Spurt());
     }
     public IEnumerator Spurt()
     {
