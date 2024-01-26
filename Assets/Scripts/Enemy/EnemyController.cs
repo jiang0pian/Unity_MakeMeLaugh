@@ -96,4 +96,17 @@ public class EnemyController : MonoBehaviour
     //{
     //    Gizmos.DrawRay()
     //}
+
+    public void ChangeHealth(float damage)
+    {
+        enemyAttribute.currentHealth += damage;
+        if (enemyAttribute.currentHealth < 0)
+        {
+            enemyAttribute.currentHealth = 0;
+        }
+        else if(enemyAttribute.currentHealth > enemyAttribute.maxHealth)
+        {
+            enemyAttribute.currentHealth = enemyAttribute.maxHealth;
+        }
+    }
 }

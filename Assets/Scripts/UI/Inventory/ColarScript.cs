@@ -16,10 +16,13 @@ public class ColarScript : Prop
     }
     public override void UseProp()
     {
+        
         StartCoroutine(Spurt());
+        
     }
     public IEnumerator Spurt()
     {
+        PlayerController.Instance.isSpurt = true;
         float oldSpeed = PlayerController.Instance.playerAttribute.moveSpeed;
         for(int i = 0; i < 20 * spurtTime; i++)
         {
@@ -27,6 +30,7 @@ public class ColarScript : Prop
             yield return new WaitForSeconds(0.05f);
         }
         PlayerController.Instance.playerAttribute.moveSpeed = oldSpeed;
+        PlayerController.Instance.isSpurt = false;
         //Debug.Log("End");
     }
 }
