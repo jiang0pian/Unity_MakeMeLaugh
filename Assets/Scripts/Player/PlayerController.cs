@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
+    public bool isSpurt = false;
+
     //人物朝向
     public Vector2 lookDirection;
 
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public GameState gameState;
       void Start () {
         animator = GetComponent<Animator>();
-    }
+      }
 
 
     private void Awake()
@@ -62,8 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameState == GameState.Gaming)
         {
-            Movement();
-            
+                Movement();
         }
         else if (gameState == GameState.Pause)
         {
@@ -117,7 +118,7 @@ public class PlayerController : MonoBehaviour
             BagController.Instance.OpenAndCloseBag();
         }
         //按下 F 键冲刺
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
         {
             StartCoroutine(ColarScript.Instance.Spurt());
         }
