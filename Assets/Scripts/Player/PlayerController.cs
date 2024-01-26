@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
-        
         rigidbody2D.AddForce(transform.up * playerAttribute.jumpForce, ForceMode2D.Impulse);
     }
     private void GetKeyDown()
