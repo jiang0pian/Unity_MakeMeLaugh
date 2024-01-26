@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
         {
             //StartCoroutine(ColarScript.Instance.Spurt());
+            NewBehaviourScript.Instance.UseProp();
         }
 
     }
