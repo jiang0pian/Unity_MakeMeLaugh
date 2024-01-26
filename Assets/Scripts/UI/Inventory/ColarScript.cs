@@ -8,7 +8,7 @@ public class ColarScript : Item
 {
     public static ColarScript Instance { get; private set; }
     public float spurtForce = 1f;
-    public int spurtTime = 1;
+    public float spurtTime = 1;
 
     private void Start()
     {

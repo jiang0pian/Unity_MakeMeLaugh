@@ -117,10 +117,10 @@ public class PlayerController : MonoBehaviour
             BagController.Instance.OpenAndCloseBag();
         }
         //°´ÏÂ F ¼ü³å´Ì
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    StartCoroutine(ColarScript.Instance.Spurt());
-        //}
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            StartCoroutine(ColarScript.Instance.Spurt());
+        }
 
     }
 
