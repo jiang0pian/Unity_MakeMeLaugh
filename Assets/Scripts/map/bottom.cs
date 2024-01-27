@@ -25,8 +25,7 @@ private void OnTriggerEnter2D(Collider2D collision)
     Debug.Log(collision.gameObject.tag);
     if (collision.gameObject.CompareTag("Player"))
     {
-        isButtonPressed = true;
-        Debug.Log("按下按钮");  
+        isButtonPressed = true; 
     }
 }
 
@@ -36,7 +35,6 @@ private void OnTriggerExit2D(Collider2D collision)
     if (collision.gameObject.CompareTag("Player"))
     {      
         isButtonPressed = false;     
-        Debug.Log("没按下按钮");  
     }
 }
 
@@ -55,14 +53,12 @@ private void FixedUpdate()
         if (isButtonPressed && !isOpen)
         {
             isOpen = true;
-            Debug.Log("门打开");
             // 设置碰撞体为打开状态
             door.offset =openSize;
         }
         if (!isButtonPressed && isOpen)
         {
             isOpen = false;
-            Debug.Log("门关闭");
             // 设置碰撞体为关闭状态
             Bounds bounds =door.bounds;
             bounds.size = closedSize;
