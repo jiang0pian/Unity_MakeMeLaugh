@@ -24,6 +24,8 @@ public class CabbageEnemy : MonoBehaviour
 
     public GameObject enemySprite;
 
+    public bool beginAction = false;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -32,28 +34,36 @@ public class CabbageEnemy : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(jump());
+        StartCoroutine(BeginAction());
+        if (beginAction == true)
+        {
+            StartCoroutine(jump());
+        }
     }
 
     private void Update()
     {
-        if (pursuitRange.OverlapPoint(PlayerController.Instance.transform.position))
+        if (beginAction == true)
         {
-            isFindPlayer = true;
-        }
-        if(isFindPlayer == true)
-        {
-            if (transform.position.x < PlayerController.Instance.transform.position.x)
+            if (pursuitRange.OverlapPoint(PlayerController.Instance.transform.position))
             {
-                lookDirection.x = 1;
-                enemySprite.transform.localScale = new Vector3(lookDirection.x, enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
+                isFindPlayer = true;
             }
-            else
+            if (isFindPlayer == true)
             {
-                lookDirection.x = -1;
-                enemySprite.transform.localScale = new Vector3(lookDirection.x, enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
+                if (transform.position.x < PlayerController.Instance.transform.position.x)
+                {
+                    lookDirection.x = 1;
+                    enemySprite.transform.localScale = new Vector3(lookDirection.x, enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
+                }
+                else
+                {
+                    lookDirection.x = -1;
+                    enemySprite.transform.localScale = new Vector3(lookDirection.x, enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
+                }
             }
         }
+            
     }
 
     public IEnumerator jump()
@@ -84,6 +94,11 @@ public class CabbageEnemy : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+    public IEnumerator BeginAction()
+    {
+        yield return new WaitForSeconds(4f);
+        beginAction = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

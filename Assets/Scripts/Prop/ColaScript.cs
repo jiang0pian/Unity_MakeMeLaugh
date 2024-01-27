@@ -6,14 +6,9 @@ using UnityEngine.AI;
 
 public class ColaScript : Prop
 {
-    public static ColaScript instance;
     public float spurtForce = 1f;
     public float spurtTime = 1;
 
-    private void Start()
-    {
-        instance = this;
-    }
     public override void UseProp()
     {
         

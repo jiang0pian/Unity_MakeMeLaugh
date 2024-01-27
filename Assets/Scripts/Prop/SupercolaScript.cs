@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class SupercolaScript : Prop
 {
-    public static SupercolaScript Instance;
     public float spurtForce = 10f;
     private Vector2 force;
 
-    private void Start()
-    {
-        Instance = this;
-    }
 
     public override void UseProp()
     {

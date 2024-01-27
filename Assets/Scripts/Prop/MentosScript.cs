@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class MentosScript : Prop
 {
-    public static MentosScript Instance;
     public float addSpeed = 800f;
     public float durationTime = 2f;
 
-    private void Start()
-    {
-        Instance = this;
-    }
 
     public override void UseProp()
     {

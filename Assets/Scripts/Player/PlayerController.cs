@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
         //}
         if(isFly == true)
         {
-            ColajetpackScript.instance.Fly();
+            //ColajetpackScript.instance.Fly();
+            //调用道具的Fly（）函数
         }
     }
     private void FixedUpdate()
@@ -215,12 +216,14 @@ public class PlayerController : MonoBehaviour
             //NewBehaviourScript.Instance.UseProp();
             //ColajetpackScript.instance.UseProp();
             //ColarScript.instance.UseProp();
+            
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             //StartCoroutine(ColarScript.Instance.Spurt());
             //NewBehaviourScript.Instance.UseProp();
-            ColajetpackScript.instance.UseProp();
+            //ColajetpackScript.instance.UseProp();
+            //BoltfrieScript.instance.UseProp();
         }
         //if (Input.GetKeyDown(KeyCode.A))
         //{

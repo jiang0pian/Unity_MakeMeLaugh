@@ -35,6 +35,8 @@ public class HomeworkEnemy : MonoBehaviour
     public GameObject enemySprite;
     public GameObject bulletPrefab;
 
+    public bool beginAction = false;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,32 +45,44 @@ public class HomeworkEnemy : MonoBehaviour
         haveEscape = false;
         lookDirection = new Vector2(1, 0);
     }
+    private void Start()
+    {
+        StartCoroutine(BeginAction());
+    }
 
     void Update()
     {
-        if (isGetAttaack == false)
+        if(beginAction == true)
         {
-            Move();
-            if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
+            if (isGetAttaack == false)
             {
-                shouldAttack = true;
-                if (attackTimer < 0)
+                Move();
+                if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
                 {
-                    attackTimer = attackTime;
-                    StartCoroutine(Fire());
+                    shouldAttack = true;
+                    if (attackTimer < 0)
+                    {
+                        attackTimer = attackTime;
+                        StartCoroutine(Fire());
+                    }
                 }
-            }
-            else
-            {
-                shouldAttack = false;
-            }
-            attackTimer -= Time.deltaTime;
+                else
+                {
+                    shouldAttack = false;
+                }
+                attackTimer -= Time.deltaTime;
 
 
+            }
         }
+        
     }
 
-
+    public IEnumerator BeginAction()
+    {
+        yield return new WaitForSeconds(4f);
+        beginAction = true;
+    }
 
     void Move()
     {

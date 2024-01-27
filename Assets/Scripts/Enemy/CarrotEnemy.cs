@@ -33,6 +33,8 @@ public class CarrotEnemy : MonoBehaviour
 
     public GameObject enemySprite;
 
+    public bool beginAction = false;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -40,25 +42,32 @@ public class CarrotEnemy : MonoBehaviour
         lookDirection = new Vector2(1, 0);
     }
 
+    private void Start()
+    {
+        StartCoroutine(BeginAction());
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(isGetAttaack == false)
+        if(beginAction == true)
         {
-            Move();
-            if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
+            if (isGetAttaack == false)
             {
-                if (attackTimer < 0)
+                Move();
+                if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
                 {
-                    attackTimer = attackTime;
+                    if (attackTimer < 0)
+                    {
+                        attackTimer = attackTime;
+                    }
+                    if (attackTimer > 3.5)
+                    {
+                        rigidbody2D.AddForce(lookDirection * spurtForce);
+                    }
                 }
-                if (attackTimer > 3.5)
-                {
-                    rigidbody2D.AddForce(lookDirection * spurtForce);
-                }
+                attackTimer -= Time.deltaTime;
             }
-            attackTimer -= Time.deltaTime;
         }
 
         
@@ -149,6 +158,11 @@ public class CarrotEnemy : MonoBehaviour
         }
     }
 
+    public IEnumerator BeginAction()
+    {
+        yield return new WaitForSeconds(4f);
+        beginAction = true;
+    }
     public IEnumerator MakeAttack()
     {
         attackTimer = 3f;
