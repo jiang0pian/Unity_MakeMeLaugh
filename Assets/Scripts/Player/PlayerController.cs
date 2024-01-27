@@ -179,12 +179,12 @@ public class PlayerController : MonoBehaviour
         //}else if(Input.GetKeyDown(KeyCode.W) && isUsingColajetpack == true)
         //{
         //    //ColajetpackScript.instance.Fly();
-
+            
         //}
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            BagController.Instance.OpenAndCloseBag();
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    BagController.Instance.OpenAndCloseBag();
+        //}
         ////按下 F 键使用果冻
         //if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
         //{
@@ -199,12 +199,12 @@ public class PlayerController : MonoBehaviour
         //    //NewBehaviourScript.Instance.UseProp();
         //    //ColajetpackScript.instance.UseProp();
         //}
-        /*        if (Input.GetKeyDown(KeyCode.P))
-                {
-                    //StartCoroutine(ColarScript.Instance.Spurt());
-                    //NewBehaviourScript.Instance.UseProp();
-                    Frenchfrie.instance.UseProp();
-                }*/
+/*        if (Input.GetKeyDown(KeyCode.P))
+        {
+            //StartCoroutine(ColarScript.Instance.Spurt());
+            //NewBehaviourScript.Instance.UseProp();
+            Frenchfrie.instance.UseProp();
+        }*/
         //if (Input.GetKeyDown(KeyCode.A))
         //{
         //    rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
