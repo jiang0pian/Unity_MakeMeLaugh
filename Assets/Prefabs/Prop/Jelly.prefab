@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2621938957634231365}
   - component: {fileID: 6241211038005111613}
   - component: {fileID: -8175412053651995264}
-  - component: {fileID: 3145065068908459381}
   - component: {fileID: 9194460120656984438}
   m_Layer: 0
   m_Name: Jelly
@@ -160,18 +159,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3145065068908459381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088017555623868932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 402efa118a7561d4ca0b60332305bc6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9194460120656984438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +174,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 0}
   itemType: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 2088017555623868932}
   isStackable: 0
   itemInfo: 
