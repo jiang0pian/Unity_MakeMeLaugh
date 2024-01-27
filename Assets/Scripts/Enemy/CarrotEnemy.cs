@@ -21,7 +21,6 @@ public class CarrotEnemy : MonoBehaviour
 
     public Collider2D pursuitRange;
     public Collider2D attackRange;
-    public Collider2D bodyRange;
 
     private float attackTime = 4;
     private float attackTimer = -1;
@@ -54,7 +53,7 @@ public class CarrotEnemy : MonoBehaviour
                 {
                     attackTimer = attackTime;
                 }
-                if (attackTimer > 3)
+                if (attackTimer > 3.5)
                 {
                     rigidbody2D.AddForce(lookDirection * 100);
                 }
