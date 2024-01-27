@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameState == GameState.Gaming)
         {
-            Movement();
+                Movement();
         }
         else if (gameState == GameState.Pause)
         {
