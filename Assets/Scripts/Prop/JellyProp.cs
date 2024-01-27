@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class JellyProp : Prop
 {
-    public GameObject jellyPrefab;              // 果冻预制体
-
-
+    private GameObject jellyPrefab;              // 果冻预制体
+    private float distance = 3.0f;              // 果冻放置距离玩家的距离
 
     // 覆写Prop类中的UseProp方法
     public override void UseProp()
@@ -23,7 +22,8 @@ public class JellyProp : Prop
 
             // 相对玩家偏移生成位置
             Debug.Log("当前玩家位置：" + position.x + "," + position.y + ")\n");
-            position.x += 2;
+            position.x += distance * PlayerController.Instance.lookDirection.x;
+            position.y -= 1.0f;
 
             // 在偏移位置实例化果冻对象
             Instantiate(jellyPrefab, position, Quaternion.identity);
