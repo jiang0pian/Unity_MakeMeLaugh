@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 173134577}
   - component: {fileID: 173134576}
   m_Layer: 5
-  m_Name: Slot2
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,7 +1211,7 @@ GameObject:
   - component: {fileID: 361745577}
   - component: {fileID: 361745576}
   m_Layer: 5
-  m_Name: Slot1
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4175,7 +4175,7 @@ GameObject:
   - component: {fileID: 579025897}
   - component: {fileID: 579025896}
   m_Layer: 5
-  m_Name: Slot7
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4291,14 +4291,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 361745575}
-  - {fileID: 173134575}
-  - {fileID: 1179557632}
-  - {fileID: 1023766388}
-  - {fileID: 925262592}
-  - {fileID: 2050272643}
-  - {fileID: 579025895}
   - {fileID: 5363240693944744639}
+  - {fileID: 579025895}
+  - {fileID: 2050272643}
+  - {fileID: 925262592}
+  - {fileID: 1023766388}
+  - {fileID: 1179557632}
+  - {fileID: 173134575}
+  - {fileID: 361745575}
   m_Father: {fileID: 2045504503}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4324,7 +4324,7 @@ MonoBehaviour:
     m_Top: 10
     m_Bottom: 10
   m_ChildAlignment: 4
-  m_StartCorner: 1
+  m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 10, y: 10}
@@ -5870,7 +5870,7 @@ GameObject:
   - component: {fileID: 925262594}
   - component: {fileID: 925262593}
   m_Layer: 5
-  m_Name: Slot5
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6905,7 +6905,7 @@ GameObject:
   - component: {fileID: 1023766390}
   - component: {fileID: 1023766389}
   m_Layer: 5
-  m_Name: Slot4
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8075,7 +8075,7 @@ GameObject:
   - component: {fileID: 1179557634}
   - component: {fileID: 1179557633}
   m_Layer: 5
-  m_Name: Slot3
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9160,14 +9160,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PropSlots:
-  - {fileID: 361745576}
-  - {fileID: 173134576}
-  - {fileID: 1179557633}
-  - {fileID: 1023766389}
-  - {fileID: 925262593}
-  - {fileID: 2050272644}
-  - {fileID: 579025896}
   - {fileID: 810790861348112900}
+  - {fileID: 579025896}
+  - {fileID: 2050272644}
+  - {fileID: 925262593}
+  - {fileID: 1023766389}
+  - {fileID: 1179557633}
+  - {fileID: 173134576}
+  - {fileID: 361745576}
   clutterManager: {fileID: 293936898}
 --- !u!1 &1538395094
 GameObject:
@@ -11237,7 +11237,7 @@ GameObject:
   - component: {fileID: 2050272645}
   - component: {fileID: 2050272644}
   m_Layer: 5
-  m_Name: Slot6
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11845,7 +11845,7 @@ GameObject:
   - component: {fileID: 24776910593619593}
   - component: {fileID: 810790861348112900}
   m_Layer: 5
-  m_Name: Slot8
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

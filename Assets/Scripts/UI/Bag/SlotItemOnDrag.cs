@@ -75,10 +75,14 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         ExchangeBagItem();
                         oldParentSlot.isContainedItem = false;
                         newParentSlot.isContainedItem = true;
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = 0;
                     }
                     else
                     {
                         ExchangeBagItem();
+                        oldParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
+                        newParentSlot.containedItem.propIndex = 0;
                     }
                 }
 
@@ -96,6 +100,8 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         ExchangeBagItem();
                         oldParentSlot.isContainedItem = false;
                         newParentSlot.isContainedItem = true;
+                        oldParentSlot.containedItem.isInCombinePanle = true;
+                        newParentSlot.containedItem.isInCombinePanle = true;
                     }
                     else
                     {
@@ -105,7 +111,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     }
                 }
                 //当原格子不是combine格子时，执行交换逻辑,并将新格子里的物体属性isInCombinePanle改为true，旧格子为false
-                else
+                else if(oldParentSlot.transform.parent.name == "Grid")
                 {
                     if (newParentSlot.isContainedItem == false)
                     {
@@ -120,6 +126,27 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         ExchangeBagItem();
                         oldParentSlot.containedItem.isInCombinePanle = false;
                         newParentSlot.containedItem.isInCombinePanle = true;
+                    }
+                }
+                else if (oldParentSlot.transform.parent.name == "PropGrid")
+                {
+                    if (newParentSlot.isContainedItem == false)
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.isContainedItem = false;
+                        newParentSlot.isContainedItem = true;
+                        oldParentSlot.containedItem.isInCombinePanle = false;
+                        newParentSlot.containedItem.isInCombinePanle = true;
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = 0;
+                    }
+                    else
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.containedItem.isInCombinePanle = false;
+                        newParentSlot.containedItem.isInCombinePanle = true;
+                        oldParentSlot.containedItem.propIndex = int.Parse(oldParentSlot.name);
+                        newParentSlot.containedItem.propIndex = 0;
                     }
                 }
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -133,12 +160,16 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     if (newParentSlot.isContainedItem == false)
                     {
                         ExchangeBagItem();
-                        oldParentSlot.isContainedItem = false;
+                        oldParentSlot.isContainedItem = false;                        
                         newParentSlot.isContainedItem = true;
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
                     }
                     else
                     {
                         ExchangeBagItem();
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
                     }
                 }
                 else if (oldParentSlot.transform.parent.name == "CombinePanel")
@@ -149,12 +180,16 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         oldParentSlot.isContainedItem = false;
                         newParentSlot.isContainedItem = true;
                         newParentSlot.containedItem.isInCombinePanle = false;
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
                     }
                     else
                     {
                         ExchangeBagItem();
                         oldParentSlot.containedItem.isInCombinePanle = true;
                         newParentSlot.containedItem.isInCombinePanle = false;
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
                     }
                 }
                 else if (oldParentSlot.transform.parent.name == "PropGrid")
@@ -164,10 +199,15 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         ExchangeBagItem();
                         oldParentSlot.isContainedItem = false;
                         newParentSlot.isContainedItem = true;
+                        oldParentSlot.containedItem.propIndex = 0;
+                        newParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
+                        Debug.Log("right");
                     }
                     else
                     {
                         ExchangeBagItem();
+                        oldParentSlot.containedItem.propIndex = int.Parse(oldParentSlot.name);
+                        newParentSlot.containedItem.propIndex = int.Parse(newParentSlot.name);
                     }
                 }
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
