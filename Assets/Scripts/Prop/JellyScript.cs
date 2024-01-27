@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class JellyScript : Prop
 {
-    //private GameObject jellyPrefab;              // 果冻预制体
     private float distance = 3.0f;              // 果冻放置距离玩家的距离
     private float jellyForce = 70.0f;           // 果冻的弹力
     private Rigidbody2D jellyRb;                // 果冻的刚体组件
+    public float maxHealth;                     // 最大生命值
+    public float currentHealth;                 // 当前生命值
 
     // 覆写Prop类中的UseProp方法
     public override void UseProp()
@@ -41,6 +42,8 @@ public class JellyScript : Prop
     {
         // 获取实例化果冻的Rigidbody2D组件
         jellyRb = this.GetComponent<Rigidbody2D>();
+        maxHealth = 1;
+        currentHealth = 1;
 
         // 确保果冻对象拥有Rigidbody组件以使其受到重力影响并能够坠落至地面。
         if (jellyRb != null)
@@ -90,6 +93,19 @@ public class JellyScript : Prop
         else
         {
             Debug.Log("otherRb==null\n");
+        }
+    }
+
+    public void ChangeHealth(float damage, bool isCarbonicAcid)
+    {
+        currentHealth += damage;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        else if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
         }
     }
 }

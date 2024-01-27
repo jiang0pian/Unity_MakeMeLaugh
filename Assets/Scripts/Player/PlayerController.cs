@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
     public GameState gameState;
       void Start () {
         animator = GetComponent<Animator>();
-      }
+        Cursor.visible = false;
+    }
 
 
     private void Awake()
