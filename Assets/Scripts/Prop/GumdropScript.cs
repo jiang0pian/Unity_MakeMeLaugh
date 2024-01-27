@@ -50,6 +50,7 @@ public class GumdropScript : Prop
     {
         if(this.GetComponent<Rigidbody2D>()!=null) rb = this.GetComponent<Rigidbody2D>();
         coll = this.GetComponent<Collider2D>();
+        coll.gameObject.GetComponent<SpriteRenderer>().sortingLayerID = 7;
         anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
         //trailRenderer = this.GetComponent<TrailRenderer>();
         rb.isKinematic = true;                          // 使橡皮糖圈运动状态变为不受外力
