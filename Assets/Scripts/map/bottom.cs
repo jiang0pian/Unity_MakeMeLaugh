@@ -45,10 +45,13 @@ private void FixedUpdate()
 {
      if(isButtonPressed){ 
             animator.SetBool("bottonon", true);
+            animator.SetBool("open", true);
         }
         else{
             animator.SetBool("bottonon", false);
+            animator.SetBool("open", false);
         }
+        
         if (isButtonPressed && !isOpen)
         {
             isOpen = true;
