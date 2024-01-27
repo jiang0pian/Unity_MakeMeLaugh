@@ -1090,6 +1090,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldParentSlot: {fileID: 0}
   newParentSlot: {fileID: 0}
+--- !u!1 &293936898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293936899}
+  m_Layer: 0
+  m_Name: ClutterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &293936899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293936898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296617510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,9 +6334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d2f131f3b14cc42851239052627732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testItem1: {fileID: 6656117105130824876, guid: 894550c07a5ea81469e791e19eda2a4e, type: 3}
-  testItem2: {fileID: 5945495982141172601, guid: 1daee440de5dc744ea954fd24e09160f, type: 3}
-  testItem3: {fileID: 4157736220529803475, guid: 18074bc8065b7194987e485c29ddc7be, type: 3}
+  testItem1: {fileID: 8216137240855578519, guid: d09aadca2232a3e4c9dd4da1c9db9af4, type: 3}
+  testItem2: {fileID: 685822583005507747, guid: 15ea8a5f43b80ac469cf13d41a731ab5, type: 3}
+  testItem3: {fileID: 9194460120656984438, guid: 84bda4cf0995ebb45a76c5ae0a2d9a8c, type: 3}
 --- !u!4 &972922283
 Transform:
   m_ObjectHideFlags: 0
@@ -9079,9 +9110,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combineList:
-  - combineString: TestItem1TestItem2
+  - combineString: ColaMentos
     resultItem:
-      item: {fileID: 4157736220529803475, guid: 18074bc8065b7194987e485c29ddc7be, type: 3}
+      item: {fileID: 6431070507819721887, guid: 878f7f1fa39fbf04786672b143de7c59, type: 3}
+      itemAmount: 0
+      isInBag: 0
+      isInCombinePanle: 0
+  - combineString: MentosCola
+    resultItem:
+      item: {fileID: 6431070507819721887, guid: 878f7f1fa39fbf04786672b143de7c59, type: 3}
       itemAmount: 0
       isInBag: 0
       isInCombinePanle: 0
@@ -9118,6 +9155,7 @@ MonoBehaviour:
   - {fileID: 2050272644}
   - {fileID: 579025896}
   - {fileID: 810790861348112900}
+  clutterManager: {fileID: 293936898}
 --- !u!1 &1538395094
 GameObject:
   m_ObjectHideFlags: 0
@@ -12714,6 +12752,7 @@ SceneRoots:
   - {fileID: 994925703}
   - {fileID: 519420032}
   - {fileID: 872189980}
+  - {fileID: 293936899}
   - {fileID: 185712756}
   - {fileID: 861756158}
   - {fileID: 972922283}

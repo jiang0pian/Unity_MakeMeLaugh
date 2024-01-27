@@ -6,13 +6,14 @@ public class PropPanelController : MonoBehaviour
 {
     public static PropPanelController Instance;
     public List<Slot> PropSlots;
+    public GameObject clutterManager;
     private void Awake()
     {
         Instance = this;
     }
     private void Update()
     {
-        
+        getKeyDown();
     }
 
     public void RefreshAllPropSlot()
@@ -27,7 +28,11 @@ public class PropPanelController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && PropSlots[0].isContainedItem==true)
         {
-            PropSlots[0].GetComponent<Prop>().UseProp();
+            GameObject tempGameObject = Instantiate(PropSlots[0].containedItem.item.itemPrefab, clutterManager.transform);
+            tempGameObject.GetComponent<Prop>().UseProp();
+            InventoryManager.Instance.ReduceItemInInventory(tempGameObject.GetComponent<Item>(), 1);
+            Destroy(tempGameObject);
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && PropSlots[1].isContainedItem == true)
         {
