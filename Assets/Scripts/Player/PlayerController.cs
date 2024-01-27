@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         else{
             animator.SetBool("walk", false);
         }
+
         //if (MathF.Abs(rigidbody2D.velocity.x) <= playerAttribute.moveSpeed / 2)
         //{
         //    rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
@@ -82,7 +83,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
     //Player Movement
     public void Movement()
     {
@@ -149,6 +149,29 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         rigidbody2D.AddForce(transform.up * playerAttribute.jumpForce, ForceMode2D.Impulse);
+    }
+    public void ChangeHealth(float damage)
+    {
+        playerAttribute.currentHealth += damage;
+        if (playerAttribute.currentHealth < 0)
+        {
+            playerAttribute.currentHealth = 0;
+        }
+        else if (playerAttribute.currentHealth > playerAttribute.maxHealth)
+        {
+            playerAttribute.currentHealth = playerAttribute.maxHealth;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log(collision.gameObject.tag);
+            Debug.Log("±»¹¥»÷ÁË");
+            ChangeHealth(-1);
+                animator.SetTrigger("shouji");
+        }
     }
     private void GetKeyDown()
     {

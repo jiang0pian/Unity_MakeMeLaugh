@@ -96,11 +96,10 @@ public class CabbageEnemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("attack"))
         {
             Debug.Log("π•ª˜µΩµ–»À¡À");
-            ChangeHealth(+3);
+            ChangeHealth(-3);
         }
     }
 

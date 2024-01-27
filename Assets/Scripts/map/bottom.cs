@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Bottom : MonoBehaviour
 {
-    public GameObject button; // 按钮对象
-    public Collider2D door; // 门的碰撞体
-    public bool isButtonPressed =false; // 按钮是否被按下
-    public bool isOpen = false; // 门的状态，初始为关闭
-    public Vector2 openSize; // 门打开时的碰撞体尺寸
-    public Vector2 closedSize; // 门关闭时的碰撞体尺寸
-    public GameObject doorCollider; // 门对象
+    public GameObject button; 
+    public Collider2D door; 
+    public bool isButtonPressed =false; 
+    public bool isOpen = false; 
+    public Vector2 openSize;
+    public Vector2 closedSize; 
+    public GameObject doorCollider; 
     public Animator animator;
         private void Start()
     {
-        // 获取门的碰撞体组件
         door= doorCollider.GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
     }
