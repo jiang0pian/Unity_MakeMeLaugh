@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Bottom : MonoBehaviour
 {
-    public GameObject button; 
-    public Collider2D door; 
-    public bool isButtonPressed =false; 
-    public bool isOpen = false; 
+    public GameObject button;
+    public Collider2D door;
+    public bool isButtonPressed = false;
+    public bool isOpen = false;
     public Vector2 openSize;
-    public Vector2 closedSize; 
-    public GameObject doorCollider; 
+    public Vector2 closedSize;
+    public GameObject doorCollider;
     public Animator animator;
-        private void Start()
+    private void Start()
     {
-        door= doorCollider.GetComponent<Collider2D>();
+        door = doorCollider.GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
     }
 
 
-private void OnTriggerEnter2D(Collider2D collision)
-{
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
-    if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")||collision.gameObject.CompareTag("enemy"))
     {
         isButtonPressed = true; 
     }
