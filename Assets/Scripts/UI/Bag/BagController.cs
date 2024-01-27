@@ -17,6 +17,7 @@ public class BagController : MonoBehaviour
     {
         if (Bag.activeSelf == false)
         {
+            Cursor.visible = true;
             PlayerController.Instance.SetGameState(GameState.Pause);
             isBagOpen = true;
             Bag.SetActive(true);
@@ -24,6 +25,7 @@ public class BagController : MonoBehaviour
         }
         else
         {
+            Cursor.visible = false;
             isBagOpen = false;
             Bag.SetActive(false);
             PlayerController.Instance.SetGameState(GameState.Gaming);

@@ -28,11 +28,7 @@ public class PropPanelController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && PropSlots[0].isContainedItem==true)
         {
-            GameObject tempGameObject = Instantiate(PropSlots[0].containedItem.item.itemPrefab, clutterManager.transform);
-            tempGameObject.GetComponent<Prop>().UseProp();
-            InventoryManager.Instance.ReduceItemInInventory(tempGameObject.GetComponent<Item>(), 1);
-            Destroy(tempGameObject);
-            
+            UseProp(0);            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && PropSlots[1].isContainedItem == true)
         {
@@ -63,4 +59,16 @@ public class PropPanelController : MonoBehaviour
             PropSlots[7].GetComponent<Prop>().UseProp();
         }
     }
+    public void UseProp(int index)
+    {
+        GameObject tempGameObject = Instantiate(PropSlots[index].containedItem.item.itemPrefab, clutterManager.transform);
+        tempGameObject.GetComponent<Prop>().UseProp();
+        InventoryManager.Instance.ReduceItemInInventory(tempGameObject.GetComponent<Item>(), 1);
+        StartCoroutine(DestoryThisObject(tempGameObject));
+    }
+    public IEnumerator DestoryThisObject(GameObject gameObject)
+    {
+        yield return new WaitForSeconds(30f);
+        Destroy(gameObject);
+    } 
 }
