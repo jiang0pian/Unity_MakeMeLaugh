@@ -28,9 +28,9 @@ public class HomeworkEnemy : MonoBehaviour
 
     private bool isGetAttaack = false;
 
-    public float spurtForce = 100f;
 
     public float spurtTime = 30f;
+    public float bulletDurationTime = 100f;
 
     public GameObject enemySprite;
     public GameObject bulletPrefab;
@@ -39,12 +39,9 @@ public class HomeworkEnemy : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         isFindPlayer = false;
+        shouldAttack = false;
+        haveEscape = false;
         lookDirection = new Vector2(1, 0);
-    }
-
-    private void Start()
-    {
-        StartCoroutine(Fire());
     }
 
     void Update()
@@ -54,19 +51,21 @@ public class HomeworkEnemy : MonoBehaviour
             Move();
             if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
             {
+                shouldAttack = true;
                 if (attackTimer < 0)
                 {
                     attackTimer = attackTime;
-                }
-                if (attackTimer > 3.5)
-                {
-                    rigidbody2D.AddForce(lookDirection * spurtForce);
+                    StartCoroutine(Fire());
                 }
             }
+            else
+            {
+                shouldAttack = false;
+            }
             attackTimer -= Time.deltaTime;
+
+
         }
-
-
     }
 
 
@@ -87,8 +86,10 @@ public class HomeworkEnemy : MonoBehaviour
 
             IdleMove();
         }
-
-        rigidbody2D.velocity = new Vector2(lookDirection.x * moveSpeed * Time.deltaTime * 10, rigidbody2D.velocity.y);
+        if(shouldAttack == false || escapeRange.OverlapPoint(PlayerController.Instance.transform.position) == true)
+        {
+            rigidbody2D.velocity = new Vector2(lookDirection.x * moveSpeed * Time.deltaTime * 10, rigidbody2D.velocity.y);
+        }
         enemySprite.transform.localScale = new Vector3(lookDirection.x * Mathf.Abs(enemySprite.transform.localScale.x), enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
     }
 
@@ -108,15 +109,31 @@ public class HomeworkEnemy : MonoBehaviour
 
     void AttackMove()
     {
-        //¹¥»÷ÒÆ¶¯
-        if (transform.position.x < PlayerController.Instance.transform.position.x)
+        if (escapeRange.OverlapPoint(PlayerController.Instance.transform.position))
         {
-            lookDirection.x = 1;
+            haveEscape = true;
+            if (transform.position.x < PlayerController.Instance.transform.position.x)
+            {
+                lookDirection.x = -1;
+            }
+            else
+            {
+                lookDirection.x = 1;
+            }
         }
         else
         {
-            lookDirection.x = -1;
+            haveEscape = false;
+            if (transform.position.x < PlayerController.Instance.transform.position.x)
+            {
+                lookDirection.x = 1;
+            }
+            else
+            {
+                lookDirection.x = -1;
+            }
         }
+            
     }
 
     public void ChangeHealth(float damage, bool isCarbonicAcid)
@@ -152,10 +169,24 @@ public class HomeworkEnemy : MonoBehaviour
     public IEnumerator Fire()
     {
         //GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
-        GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 5f + lookDirection * 5f, Quaternion.identity);
-        bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody2D>().AddForce(lookDirection * 1000f);
-        yield return new WaitForSeconds(spurtTime * Time.deltaTime);
+        GameObject bullet;
+        if (haveEscape == true)
+        {
+            bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 5f + -1 * lookDirection * 5f, Quaternion.identity);
+            bullet.SetActive(true);
+            bullet.GetComponent<Rigidbody2D>().AddForce(-1 * lookDirection * 1000f);
+        }
+        else
+        {
+            bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 5f + lookDirection * 5f, Quaternion.identity);
+            bullet.SetActive(true);
+            bullet.GetComponent<Rigidbody2D>().AddForce(lookDirection * 1000f);
+        }
         
+        yield return new WaitForSeconds(bulletDurationTime * Time.deltaTime);
+        if(bullet != null)
+        {
+            Destroy(bullet);
+        }
     }
 }
