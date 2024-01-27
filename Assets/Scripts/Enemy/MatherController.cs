@@ -6,6 +6,9 @@ public class MatherController : MonoBehaviour
 {
     public GameObject[] Prefabs;
 
+    public float maxHealth;
+    public float currentHealth;
+
     private float createDurationTimer = 4f;
 
     public float minCreateDurationTime = 5.0f;
@@ -56,5 +59,10 @@ public class MatherController : MonoBehaviour
         int randomIntInclusive = Random.Range(0, 100);
         GameObject enemy = Instantiate(Prefabs[randomIntInclusive % 4], transform.position, Quaternion.identity);
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1) * 3000f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //..............
     }
 }
