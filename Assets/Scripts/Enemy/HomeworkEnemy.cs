@@ -11,6 +11,8 @@ public class HomeworkEnemy : MonoBehaviour
     public float moveSpeed;
 
     private bool isFindPlayer;
+    private bool shouldAttack;
+    private bool haveEscape;
 
     private Vector2 lookDirection;
 
@@ -31,12 +33,6 @@ public class HomeworkEnemy : MonoBehaviour
     public float spurtTime = 30f;
 
     public GameObject enemySprite;
-
-    
-
-
-
-
     public GameObject bulletPrefab;
 
     private void Awake()
@@ -48,7 +44,7 @@ public class HomeworkEnemy : MonoBehaviour
 
     private void Start()
     {
-        Fire();
+        StartCoroutine(Fire());
     }
 
     void Update()
@@ -153,10 +149,13 @@ public class HomeworkEnemy : MonoBehaviour
         isGetAttaack = false;
     }
 
-    public void Fire()
+    public IEnumerator Fire()
     {
         //GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
-        GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 5f + lookDirection * 5f, Quaternion.identity);
         bullet.SetActive(true);
+        bullet.GetComponent<Rigidbody2D>().AddForce(lookDirection * 1000f);
+        yield return new WaitForSeconds(spurtTime * Time.deltaTime);
+        
     }
 }
