@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
+    public bool isUsingColajetpack = false;
+    public bool isFly = false;
+
 
     public bool isSpurt = false;
 
@@ -63,6 +66,10 @@ public class PlayerController : MonoBehaviour
         //{
         //    rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
         //}
+        if(isFly == true)
+        {
+            ColajetpackScript.instance.Fly();
+        }
     }
     private void FixedUpdate()
     {
@@ -145,13 +152,35 @@ public class PlayerController : MonoBehaviour
     }
     private void GetKeyDown()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        if(isUsingColajetpack == false)
         {
-            if (GetComponent<PhysicsCheck>().isOnGround==true)
+            if (Input.GetKeyDown(KeyCode.W) && GetComponent<PhysicsCheck>().isOnGround == true)
             {
                 Jump();
             }
         }
+        else if(isUsingColajetpack == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                isFly = true;
+            }
+            if(Input.GetKeyUp(KeyCode.W))
+            {
+                isFly = false;
+            }
+        }
+        //if(Input.GetKeyDown(KeyCode.W) && isUsingColajetpack == false)
+        //{
+        //    if (GetComponent<PhysicsCheck>().isOnGround==true)
+        //    {
+        //        Jump();
+        //    }
+        //}else if(Input.GetKeyDown(KeyCode.W) && isUsingColajetpack == true)
+        //{
+        //    //ColajetpackScript.instance.Fly();
+            
+        //}
         if (Input.GetKeyDown(KeyCode.I))
         {
             BagController.Instance.OpenAndCloseBag();
@@ -161,7 +190,14 @@ public class PlayerController : MonoBehaviour
         {
             //StartCoroutine(ColarScript.Instance.Spurt());
             //NewBehaviourScript.Instance.UseProp();
-            this.GetComponent<JellyProp>().UseProp();
+            //ColajetpackScript.instance.UseProp();
+            ColarScript.instance.UseProp();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //StartCoroutine(ColarScript.Instance.Spurt());
+            //NewBehaviourScript.Instance.UseProp();
+            ColajetpackScript.instance.UseProp();
         }
         //if (Input.GetKeyDown(KeyCode.A))
         //{
@@ -184,7 +220,7 @@ public class PlayerController : MonoBehaviour
         //    {
         //        rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
         //    }
-            
+
         //}
 
     }

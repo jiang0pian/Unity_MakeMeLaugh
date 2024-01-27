@@ -6,9 +6,14 @@ using UnityEngine.AI;
 
 public class ColarScript : Prop
 {
+    public static ColarScript instance;
     public float spurtForce = 1f;
     public float spurtTime = 1;
 
+    private void Start()
+    {
+        instance = this;
+    }
     public override void UseProp()
     {
         
