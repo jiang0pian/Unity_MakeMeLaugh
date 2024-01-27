@@ -28,10 +28,10 @@ public class Slot : MonoBehaviour
             }
             else if (isContainedItem == true && containedItem.itemAmount == 0)
             {
-                //Debug.Log("into RefreshSlot_isContainedItem == false");
-                amountText.text = "";
-                itemImage.sprite = containedItem.item.itemSprite;
+                //Debug.Log("into RefreshSlot_isContainedItem == false");                
                 containedItem = InventorySaver.Instance.emptyItem;
+                itemImage.sprite = containedItem.item.itemSprite;
+                amountText.text = "";
                 isContainedItem = false;
             }
             else if (isContainedItem == false)

@@ -25,7 +25,7 @@ public class Test : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            
+            InventoryManager.Instance.ReduceItemInInventory(testItem1, 1);
         }
         InventoryManager.Instance.RefreshItemInBag();
         InventoryManager.Instance.RefreshBagSlotAmount();

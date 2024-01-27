@@ -37,6 +37,7 @@ public class BagItem
     public int itemAmount;
     public bool isInBag = false;
     public bool isInCombinePanle = false;
+    public int propIndex;//0为不在prop，1-8为所在prop栏的序号
 
     public BagItem(Item itemToAdd, int amount)
     {

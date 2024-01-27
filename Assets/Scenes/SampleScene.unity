@@ -400,6 +400,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1042634424}
   itemImage: {fileID: 2130230574}
   isContainedItem: 0
@@ -1254,6 +1255,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1837682990}
   itemImage: {fileID: 1162914222}
   isContainedItem: 0
@@ -4217,6 +4219,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1029149270}
   itemImage: {fileID: 196749723}
   isContainedItem: 0
@@ -4289,14 +4292,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5363240693944744639}
-  - {fileID: 579025895}
-  - {fileID: 2050272643}
-  - {fileID: 925262592}
-  - {fileID: 1023766388}
-  - {fileID: 1179557632}
-  - {fileID: 173134575}
   - {fileID: 361745575}
+  - {fileID: 173134575}
+  - {fileID: 1179557632}
+  - {fileID: 1023766388}
+  - {fileID: 925262592}
+  - {fileID: 2050272643}
+  - {fileID: 579025895}
+  - {fileID: 5363240693944744639}
   m_Father: {fileID: 2045504503}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5911,6 +5914,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1933901401}
   itemImage: {fileID: 1538395097}
   isContainedItem: 0
@@ -6517,6 +6521,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 955655688}
   itemImage: {fileID: 1046435721}
   isContainedItem: 0
@@ -6944,6 +6949,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1976006943}
   itemImage: {fileID: 716197328}
   isContainedItem: 0
@@ -8113,6 +8119,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 517324274}
   itemImage: {fileID: 637487870}
   isContainedItem: 0
@@ -8681,6 +8688,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 855195357}
   itemImage: {fileID: 1994304615}
   isContainedItem: 0
@@ -8996,6 +9004,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 0
     isInCombinePanle: 0
+    propIndex: 0
   TempSlot: {fileID: 1516512785}
 --- !u!114 &1516512781
 MonoBehaviour:
@@ -9094,6 +9103,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 0
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 0}
   itemImage: {fileID: 0}
   isContainedItem: 0
@@ -9116,12 +9126,14 @@ MonoBehaviour:
       itemAmount: 0
       isInBag: 0
       isInCombinePanle: 0
+      propIndex: 0
   - combineString: MentosCola
     resultItem:
       item: {fileID: 6431070507819721887, guid: 878f7f1fa39fbf04786672b143de7c59, type: 3}
       itemAmount: 0
       isInBag: 0
       isInCombinePanle: 0
+      propIndex: 0
   combineSlots:
   - {fileID: 3146766413280679353}
   - {fileID: 1310825907}
@@ -9134,6 +9146,7 @@ MonoBehaviour:
       itemAmount: 0
       isInBag: 0
       isInCombinePanle: 0
+      propIndex: 0
 --- !u!114 &1516512787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11235,6 +11248,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1673825286}
   itemImage: {fileID: 686016281}
   isContainedItem: 0
@@ -11763,6 +11777,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 3409334872934911384}
   itemImage: {fileID: 1448386232763262401}
   isContainedItem: 0
@@ -12056,6 +12071,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 1
     isInCombinePanle: 0
+    propIndex: 0
   amountText: {fileID: 1133616964876571173}
   itemImage: {fileID: 3815319666295552636}
   isContainedItem: 0
@@ -12533,6 +12549,7 @@ MonoBehaviour:
     itemAmount: 0
     isInBag: 0
     isInCombinePanle: 0
+    propIndex: 0
   emptyItem: {fileID: 0}
 --- !u!225 &7544231618791171713
 CanvasGroup:

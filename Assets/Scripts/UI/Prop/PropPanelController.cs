@@ -63,7 +63,7 @@ public class PropPanelController : MonoBehaviour
     {
         GameObject tempGameObject = Instantiate(PropSlots[index].containedItem.item.itemPrefab, clutterManager.transform);
         tempGameObject.GetComponent<Prop>().UseProp();
-        InventoryManager.Instance.ReduceItemInInventory(tempGameObject.GetComponent<Item>(), 1);
+        InventoryManager.Instance.ReduceItemInInventory(PropSlots[index].containedItem.item, 1);
         StartCoroutine(DestoryThisObject(tempGameObject));
         if (clutterManager.transform.childCount >= 10)
         {
