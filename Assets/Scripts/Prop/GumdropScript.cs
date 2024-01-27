@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GumdropScript : Prop
@@ -13,10 +14,9 @@ public class GumdropScript : Prop
     private bool isPressed;                     // 鼠标左键是否按下
     private bool isCatapult;                    // 橡皮糖圈是否被发射
     private float maxDragDistance = 5.0f;       // 最大拉伸距离
-    //private TrailRenderer trailRenderer;        // 轨迹组件
     private Vector2 mousePos;                   // 鼠标游戏内坐标
-    private float coefficient = 15.0f;           // 橡皮糖圈的弹射系数
-    public LayerMask layerMask;                 // 在Unity编辑器中设置你想检测的Layer
+    private float coefficient = 15.0f;          // 橡皮糖圈的弹射系数
+    public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
     public float detectionRadius = 5.0f;        // 检测半径
 
 
@@ -48,7 +48,7 @@ public class GumdropScript : Prop
 
     private void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        if(this.GetComponent<Rigidbody2D>()!=null) rb = this.GetComponent<Rigidbody2D>();
         coll = this.GetComponent<Collider2D>();
         anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
         //trailRenderer = this.GetComponent<TrailRenderer>();
@@ -92,12 +92,12 @@ public class GumdropScript : Prop
             if (!isPressed && !isCatapult)
             {
                 // 开始瞄准前橡皮圈跟随玩家
-                Debug.Log(gameObject.name+"未开始瞄准\n");
+                //Debug.Log(gameObject.name+"未开始瞄准\n");
                 rb.position = anchor.position;
             }
             else if (isPressed && !isCatapult)
             {
-                Debug.Log(gameObject.name + "开始瞄准\n");
+                //Debug.Log(gameObject.name + "开始瞄准\n");
                 // 瞄准时始终在锚点范围内
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (Vector2.Distance(mousePos, anchor.position) > maxDragDistance)
@@ -121,7 +121,7 @@ public class GumdropScript : Prop
             if (Vector2.Distance(other.gameObject.transform.position,anchor.position)>maxDragDistance)
             {
                 Debug.Log("触碰到其他触发器:" + other.gameObject.name + "\n");
-                PropEffect();
+                PropEffect(rb);
                 Destroy(this.gameObject);
             }
         }
@@ -131,23 +131,39 @@ public class GumdropScript : Prop
     // 根据鼠标坐标和玩家坐标绘制预测抛物线
     private void drawParabola()
     {
-        
+        //GameObject ball = new GameObject("DynamicBall");
+        //ball.layer = 9;
+        //// 添加 Rigidbody2D 组件
+        //Rigidbody2D temprb = ball.AddComponent<Rigidbody2D>();
+        //// 设置 Rigidbody2D 属性
+        //temprb.gravityScale = 1; // 根据需要调整重力影响
+        //// 添加 SpriteRenderer 组件以可视化小球
+        //Texture2D texture = new Texture2D(1, 1);
+        //texture.SetPixel(0, 0, Color.red);
+        //texture.Apply();
+        //Sprite newSprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        //SpriteRenderer renderer = ball.AddComponent<SpriteRenderer>();
+        //renderer.sprite = newSprite;
+        //// 设置小球的初始位置
+        //ball.transform.position = rb.position;
+        //Catapult(temprb);
     }
 
+
     // 发射rb
-    private void Catapult(Rigidbody2D rb)
+    private void Catapult(Rigidbody2D rb_)
     {
-        rb.isKinematic = false; // 确保物体不是运动学的
-        rb.gravityScale = 8;    // 确保重力影响开启
+        rb_.isKinematic = false; // 确保物体不是运动学的
+        rb_.gravityScale = 8;    // 确保重力影响开启
         // 根据瞄准向量计算施加的力
         Vector2 force = Mathf.Min(Vector2.Distance(mousePos, anchor.position), maxDragDistance) * coefficient * (anchor.position - mousePos).normalized;
-        rb.AddForce(force,ForceMode2D.Impulse);
+        rb_.AddForce(force,ForceMode2D.Impulse);
     }
 
     // 道具生效后的效果实现
-    private void PropEffect()
+    private void PropEffect(Rigidbody2D rb_)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, layerMask);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(rb_.transform.position, detectionRadius, layerMask);
         foreach (Collider2D collider in colliders)
         {
             GameObject detectedObject = collider.gameObject;
