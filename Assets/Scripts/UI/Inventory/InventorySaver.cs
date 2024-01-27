@@ -1,19 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class InventorySaver : MonoBehaviour
 {
     public static InventorySaver Instance;
+    
+    public List<BagItem> inventoryItemList;
+    public BagItem emptyItem;
+    public BagItem emptyItemSave;
+    public Slot TempSlot;//用作存储slot信息
+
     private void Awake()
     {
         Instance = this;
-    }
-    public List<BagItem> inventoryItemList;
-    public BagItem emptyItem;
-    public Slot TempSlot;//用作存储slot信息
-
+    }    
     public BagItem ChooseOneItemNotInBag(Slot slot)
     {
         for (int i = 0; i < inventoryItemList.Count; i++)

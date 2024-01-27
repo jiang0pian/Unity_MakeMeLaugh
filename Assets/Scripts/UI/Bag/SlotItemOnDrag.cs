@@ -121,7 +121,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 transform.position = oldParentSlot.transform.position;
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             }
-            //CombineController.Instance.RefreshConbineSlots();
+            CombineController.Instance.RefreshCombineSlots();
         }
 
     }
