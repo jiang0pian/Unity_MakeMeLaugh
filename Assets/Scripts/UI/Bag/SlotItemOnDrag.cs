@@ -67,8 +67,22 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         newParentSlot.containedItem.isInCombinePanle = false;
                     }
                 }
+                //当原格子是道具格子时，执行交换逻辑
+                else if (oldParentSlot.transform.parent.name == "PropGrid")
+                {
+                    if (newParentSlot.isContainedItem == false)
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.isContainedItem = false;
+                        newParentSlot.isContainedItem = true;
+                    }
+                    else
+                    {
+                        ExchangeBagItem();
+                    }
+                }
 
-                gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                    gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             }
             //当目标点不为空，有Slot，且属于combine格子
             else if (eventData.pointerCurrentRaycast.isValid && eventData.pointerCurrentRaycast.gameObject.transform.parent.GetComponent<Slot>() != null && eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.name == "CombinePanel")
@@ -100,13 +114,60 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                         newParentSlot.isContainedItem = true;
                         oldParentSlot.containedItem.isInCombinePanle = false;
                         newParentSlot.containedItem.isInCombinePanle = true;
-                        Debug.Log("3");
                     }
                     else
                     {
                         ExchangeBagItem();
                         oldParentSlot.containedItem.isInCombinePanle = false;
                         newParentSlot.containedItem.isInCombinePanle = true;
+                    }
+                }
+                gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            }
+            //当目标点不为空，有Slot，且属于prop格子
+            else if (eventData.pointerCurrentRaycast.isValid && eventData.pointerCurrentRaycast.gameObject.transform.parent.GetComponent<Slot>() != null && eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.name == "PropGrid")
+            {
+                newParentSlot = eventData.pointerCurrentRaycast.gameObject.transform.parent.GetComponent<Slot>();
+                if (oldParentSlot.transform.parent.name == "Grid")
+                {
+                    if (newParentSlot.isContainedItem == false)
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.isContainedItem = false;
+                        newParentSlot.isContainedItem = true;
+                    }
+                    else
+                    {
+                        ExchangeBagItem();
+                    }
+                }
+                else if (oldParentSlot.transform.parent.name == "CombinePanel")
+                {
+                    if (newParentSlot.isContainedItem == false)
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.isContainedItem = false;
+                        newParentSlot.isContainedItem = true;
+                        newParentSlot.containedItem.isInCombinePanle = false;
+                    }
+                    else
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.containedItem.isInCombinePanle = true;
+                        newParentSlot.containedItem.isInCombinePanle = false;
+                    }
+                }
+                else if (oldParentSlot.transform.parent.name == "PropGrid")
+                {
+                    if (newParentSlot.isContainedItem == false)
+                    {
+                        ExchangeBagItem();
+                        oldParentSlot.isContainedItem = false;
+                        newParentSlot.isContainedItem = true;
+                    }
+                    else
+                    {
+                        ExchangeBagItem();
                     }
                 }
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;

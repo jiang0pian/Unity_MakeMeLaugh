@@ -31,5 +31,6 @@ public class Test : MonoBehaviour
         InventoryManager.Instance.RefreshBagSlotAmount();
         CombineController.Instance.TryToCombine();
         CombineController.Instance.RefreshCombineSlots();
+        PropPanelController.Instance.RefreshAllPropSlot();
     }
 }
