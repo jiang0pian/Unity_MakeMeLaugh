@@ -61,10 +61,10 @@ public class PlayerController : MonoBehaviour
         else{
             animator.SetBool("walk", false);
         }
-        if (MathF.Abs(rigidbody2D.velocity.x) <= playerAttribute.moveSpeed / 2)
-        {
-            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-        }
+        //if (MathF.Abs(rigidbody2D.velocity.x) <= playerAttribute.moveSpeed / 2)
+        //{
+        //    rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+        //}
     }
     private void FixedUpdate()
     {
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         if (rigidbody2D.velocity.magnitude > isMovingThreshold||Mathf.Abs(Input.GetAxisRaw("Horizontal"))>0)
         {
             isMoving = true;
-            //rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed * Time.deltaTime,rigidbody2D.velocity.y);
+            rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed * Time.deltaTime,rigidbody2D.velocity.y);
             //rigidbody2D.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed * Time.deltaTime, 0);
             //rigidbody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * playerAttribute.moveSpeed, 0f), ForceMode2D.Force);
             if (Input.GetAxisRaw("Horizontal") > 0f)
@@ -164,29 +164,29 @@ public class PlayerController : MonoBehaviour
             //StartCoroutine(ColarScript.Instance.Spurt());
             NewBehaviourScript.Instance.UseProp();
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            if(rigidbody2D.velocity.x < -playerAttribute.moveSpeed / 2)
-            {
-                rigidbody2D.velocity += new Vector2(1 * playerAttribute.moveSpeed, 0);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            rigidbody2D.velocity += new Vector2(1 * playerAttribute.moveSpeed, 0);
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            if (rigidbody2D.velocity.x > playerAttribute.moveSpeed / 2)
-            {
-                rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
-            }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
+        //}
+        //if (Input.GetKeyUp(KeyCode.A))
+        //{
+        //    if(rigidbody2D.velocity.x < -playerAttribute.moveSpeed / 2)
+        //    {
+        //        rigidbody2D.velocity += new Vector2(1 * playerAttribute.moveSpeed, 0);
+        //    }
+        //}
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    rigidbody2D.velocity += new Vector2(1 * playerAttribute.moveSpeed, 0);
+        //}
+        //if (Input.GetKeyUp(KeyCode.D))
+        //{
+        //    if (rigidbody2D.velocity.x > playerAttribute.moveSpeed / 2)
+        //    {
+        //        rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
+        //    }
             
-        }
+        //}
 
     }
 
