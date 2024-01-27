@@ -27,7 +27,7 @@ public class CarrotEnemy : MonoBehaviour
 
     private bool isGetAttaack = false;
 
-    public float spurtForce = 400f;
+    public float spurtForce = 100f;
 
     public float spurtTime = 30f;
 
@@ -40,10 +40,6 @@ public class CarrotEnemy : MonoBehaviour
         lookDirection = new Vector2(1, 0);
     }
 
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -59,7 +55,7 @@ public class CarrotEnemy : MonoBehaviour
                 }
                 if (attackTimer > 3.5)
                 {
-                    rigidbody2D.AddForce(lookDirection * 100);
+                    rigidbody2D.AddForce(lookDirection * spurtForce);
                 }
             }
             attackTimer -= Time.deltaTime;
@@ -157,7 +153,7 @@ public class CarrotEnemy : MonoBehaviour
     {
         attackTimer = 3f;
         isGetAttaack = true;
-        rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * spurtForce);
+        rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * 400);
         yield return new WaitForSeconds(spurtTime * Time.deltaTime);
         isGetAttaack = false;
     }
