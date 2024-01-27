@@ -32,31 +32,31 @@ public class PropPanelController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && PropSlots[1].isContainedItem == true)
         {
-            PropSlots[1].GetComponent<Prop>().UseProp();
+            UseProp(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && PropSlots[2].isContainedItem == true)
         {
-            PropSlots[2].GetComponent<Prop>().UseProp();
+            UseProp(2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4) && PropSlots[3].isContainedItem == true)
         {
-            PropSlots[3].GetComponent<Prop>().UseProp();
+            UseProp(3);
         }
         if (Input.GetKeyDown(KeyCode.Q) && PropSlots[4].isContainedItem == true)
         {
-            PropSlots[4].GetComponent<Prop>().UseProp();
+            UseProp(4);
         }
         if (Input.GetKeyDown(KeyCode.E) && PropSlots[5].isContainedItem == true)
         {
-            PropSlots[5].GetComponent<Prop>().UseProp();
+            UseProp(5);
         }
         if (Input.GetKeyDown(KeyCode.R) && PropSlots[6].isContainedItem == true)
         {
-            PropSlots[6].GetComponent<Prop>().UseProp();
+            UseProp(6);
         }
         if (Input.GetKeyDown(KeyCode.F) && PropSlots[7].isContainedItem == true)
         {
-            PropSlots[7].GetComponent<Prop>().UseProp();
+            UseProp(7);
         }
     }
     public void UseProp(int index)
@@ -65,6 +65,10 @@ public class PropPanelController : MonoBehaviour
         tempGameObject.GetComponent<Prop>().UseProp();
         InventoryManager.Instance.ReduceItemInInventory(tempGameObject.GetComponent<Item>(), 1);
         StartCoroutine(DestoryThisObject(tempGameObject));
+        if (clutterManager.transform.childCount >= 10)
+        {
+            Destroy(clutterManager.transform.GetChild(0).gameObject);           
+        }
     }
     public IEnumerator DestoryThisObject(GameObject gameObject)
     {
