@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
         {
             //StartCoroutine(ColarScript.Instance.Spurt());
             //NewBehaviourScript.Instance.UseProp();
-            ColajetpackScript.instance.UseProp();
+            //ColajetpackScript.instance.UseProp();
         }
         //if (Input.GetKeyDown(KeyCode.A))
         //{
