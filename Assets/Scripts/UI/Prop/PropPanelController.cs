@@ -13,7 +13,10 @@ public class PropPanelController : MonoBehaviour
     }
     private void Update()
     {
-        getKeyDown();
+        if (PlayerController.Instance.gameState == GameState.Gaming)
+        {
+            getKeyDown();
+        }       
     }
 
     public void RefreshAllPropSlot()
@@ -64,8 +67,10 @@ public class PropPanelController : MonoBehaviour
         GameObject tempGameObject = Instantiate(PropSlots[index].containedItem.item.itemPrefab, clutterManager.transform);
         tempGameObject.GetComponent<Prop>().UseProp();
         if (InventorySaver.Instance.inventoryItemList.Exists(x => (x.item == PropSlots[index].containedItem.item && x.propIndex==index+1)) == true)
-        {            
-            InventorySaver.Instance.inventoryItemList.Remove(InventorySaver.Instance.inventoryItemList.Find(x => x.item == PropSlots[index].containedItem.item));
+        {
+            Debug.Log("find it");
+            InventorySaver.Instance.inventoryItemList.Find(x => x.item == PropSlots[index].containedItem.item && x.propIndex == index + 1).itemAmount = 0;
+            InventorySaver.Instance.inventoryItemList.Remove(InventorySaver.Instance.inventoryItemList.Find(x => x.item == PropSlots[index].containedItem.item && x.propIndex == index + 1));            
         }
             StartCoroutine(DestoryThisObject(tempGameObject));
         if (clutterManager.transform.childCount >= 10)
@@ -73,6 +78,8 @@ public class PropPanelController : MonoBehaviour
             Destroy(clutterManager.transform.GetChild(0).gameObject);           
         }
     }
+
+   
     public IEnumerator DestoryThisObject(GameObject gameObject)
     {
         yield return new WaitForSeconds(30f);
