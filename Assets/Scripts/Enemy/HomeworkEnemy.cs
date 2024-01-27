@@ -19,6 +19,7 @@ public class HomeworkEnemy : MonoBehaviour
 
     public Collider2D pursuitRange;
     public Collider2D attackRange;
+    public Collider2D escapeRange;
 
     private float attackTime = 4;
     private float attackTimer = -1;
@@ -31,6 +32,13 @@ public class HomeworkEnemy : MonoBehaviour
 
     public GameObject enemySprite;
 
+    
+
+
+
+
+    public GameObject bulletPrefab;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -38,8 +46,11 @@ public class HomeworkEnemy : MonoBehaviour
         lookDirection = new Vector2(1, 0);
     }
 
+    private void Start()
+    {
+        Fire();
+    }
 
-    // Update is called once per frame
     void Update()
     {
         if (isGetAttaack == false)
@@ -63,6 +74,7 @@ public class HomeworkEnemy : MonoBehaviour
     }
 
 
+
     void Move()
     {
         //移动模式
@@ -72,16 +84,6 @@ public class HomeworkEnemy : MonoBehaviour
         }
         else
         {
-            //检测玩家
-            //RaycastHit2D hitForward = Physics2D.Raycast(rigidbody2D.position, lookDirection, 1000f, LayerMask.GetMask("Player"));
-            //Debug.DrawRay(rigidbody2D.position, lookDirection * 1000f, Color.red);
-            //RaycastHit2D hitBack = Physics2D.Raycast(rigidbody2D.position, lookDirection * -1, 1000f, LayerMask.GetMask("Player"));
-            //Debug.DrawRay(rigidbody2D.position, lookDirection * 1000f, Color.red);
-            //if (hitForward.collider != null || hitBack.collider != null)
-            //{
-            //    isFindPlayer = true;
-            //}
-
             if (pursuitRange.OverlapPoint(PlayerController.Instance.transform.position))
             {
                 isFindPlayer = true;
@@ -121,11 +123,6 @@ public class HomeworkEnemy : MonoBehaviour
         }
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.DrawRay()
-    //}
-
     public void ChangeHealth(float damage, bool isCarbonicAcid)
     {
         currentHealth += damage;
@@ -150,10 +147,16 @@ public class HomeworkEnemy : MonoBehaviour
 
     public IEnumerator MakeAttack()
     {
-        attackTimer = 3f;
         isGetAttaack = true;
         rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * 400);
         yield return new WaitForSeconds(spurtTime * Time.deltaTime);
         isGetAttaack = false;
+    }
+
+    public void Fire()
+    {
+        //GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position, Quaternion.identity);
+        bullet.SetActive(true);
     }
 }

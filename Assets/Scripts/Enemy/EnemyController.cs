@@ -27,11 +27,6 @@ public class EnemyController : MonoBehaviour
         lookDirection = new Vector2(1, 0);
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
