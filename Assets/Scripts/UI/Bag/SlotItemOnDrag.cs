@@ -11,7 +11,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         oldParentSlot = transform.parent.GetComponent<Slot>();
         if (transform.parent.GetComponent<Slot>() != null && oldParentSlot.isContainedItem == true)
         {
-            transform.SetParent(transform.parent.parent.parent);
+            transform.SetParent(transform.parent.parent.parent.parent);
             GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
     }
