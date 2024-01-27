@@ -185,13 +185,13 @@ public class PlayerController : MonoBehaviour
         {
             BagController.Instance.OpenAndCloseBag();
         }
-        //按下 F 键使用果冻
+        //按下 F 键
         if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
         {
             //StartCoroutine(ColarScript.Instance.Spurt());
             //NewBehaviourScript.Instance.UseProp();
             //ColajetpackScript.instance.UseProp();
-            ColarScript.instance.UseProp();
+            //ColarScript.instance.UseProp();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
