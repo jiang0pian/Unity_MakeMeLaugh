@@ -7,10 +7,23 @@ public class ColajetpackScript : Prop
     public static ColajetpackScript instance;
     public float riseForce = 20f;
     public float durationTime = 10f;
+    public Animator animator;
 
     private void Start()
     {
         instance = this;
+        animator = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (PlayerController.Instance.isUsingColajetpack)
+        {
+            animator.SetBool("penqibeibao", true);
+        }
+        else
+        {
+            animator.SetBool("penqibeibao", false);
+        }
     }
     public override void UseProp()
     {
