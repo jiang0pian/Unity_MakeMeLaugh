@@ -32,5 +32,6 @@ public class Test : MonoBehaviour
         CombineController.Instance.TryToCombine();
         CombineController.Instance.RefreshCombineSlots();
         PropPanelController.Instance.RefreshAllPropSlot();
+
     }
 }
