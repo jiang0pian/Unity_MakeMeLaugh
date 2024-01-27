@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
     public float getHitTimeInterval = 0.5f;
     public float getHitCounter;
 
-    private bool isAPressed = false;
-    private bool isDPressed = false;
 
     public bool isSpurt = false;
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CarrotEnemy : MonoBehaviour
 {
@@ -16,6 +18,15 @@ public class CarrotEnemy : MonoBehaviour
 
     private float moveTime = 2f;
     private float moveTimer = -1;
+
+    public Collider2D pursuitRange;
+    public Collider2D attackRange;
+    public Collider2D bodyRange;
+
+    private float attackTime = 4;
+    private float attackTimer = -1;
+
+    private bool isGetAttaack = false;
 
     public GameObject enemySprite;
 
@@ -34,7 +45,24 @@ public class CarrotEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(isGetAttaack == false)
+        {
+            Move();
+            if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
+            {
+                if (attackTimer < 0)
+                {
+                    attackTimer = attackTime;
+                }
+                if (attackTimer > 3)
+                {
+                    rigidbody2D.AddForce(lookDirection * 100);
+                }
+            }
+            attackTimer -= Time.deltaTime;
+        }
+
+        
     }
 
     void Move()
@@ -47,13 +75,19 @@ public class CarrotEnemy : MonoBehaviour
         else
         {
             //¼ì²âÍæ¼Ò
-            RaycastHit2D hitForward = Physics2D.Raycast(rigidbody2D.position, lookDirection, 4f, LayerMask.GetMask("Player"));
-            RaycastHit2D hitBack = Physics2D.Raycast(rigidbody2D.position, lookDirection * -1, 4f, LayerMask.GetMask("Player"));
-            if (hitForward.collider != null || hitBack.collider != null)
+            //RaycastHit2D hitForward = Physics2D.Raycast(rigidbody2D.position, lookDirection, 1000f, LayerMask.GetMask("Player"));
+            //Debug.DrawRay(rigidbody2D.position, lookDirection * 1000f, Color.red);
+            //RaycastHit2D hitBack = Physics2D.Raycast(rigidbody2D.position, lookDirection * -1, 1000f, LayerMask.GetMask("Player"));
+            //Debug.DrawRay(rigidbody2D.position, lookDirection * 1000f, Color.red);
+            //if (hitForward.collider != null || hitBack.collider != null)
+            //{
+            //    isFindPlayer = true;
+            //}
+            
+            if(pursuitRange.OverlapPoint(PlayerController.Instance.transform.position))
             {
                 isFindPlayer = true;
             }
-
 
             IdleMove();
         }
@@ -105,5 +139,23 @@ public class CarrotEnemy : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            StartCoroutine(MakeAttack());
+        }
+    }
+
+    public IEnumerator MakeAttack()
+    {
+        attackTimer = 3f;
+        isGetAttaack = true;
+        rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * 400);
+        yield return new WaitForSeconds(30f * Time.deltaTime);
+        isGetAttaack = false;
     }
 }
