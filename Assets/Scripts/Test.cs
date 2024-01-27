@@ -30,6 +30,6 @@ public class Test : MonoBehaviour
         InventoryManager.Instance.RefreshItemInBag();
         InventoryManager.Instance.RefreshBagSlotAmount();
         CombineController.Instance.TryToCombine();
-
+        CombineController.Instance.RefreshCombineSlots();
     }
 }

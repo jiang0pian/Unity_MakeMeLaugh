@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -121,9 +118,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 transform.position = oldParentSlot.transform.position;
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             }
-            CombineController.Instance.RefreshCombineSlots();
         }
-
     }
 
     public void ExchangeBagItem()

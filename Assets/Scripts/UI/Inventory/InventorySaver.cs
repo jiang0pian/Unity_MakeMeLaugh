@@ -9,7 +9,7 @@ public class InventorySaver : MonoBehaviour
     public static InventorySaver Instance;
     
     public List<BagItem> inventoryItemList;
-    public BagItem emptyItem;
+    public BagItem emptyItem;    
     public Slot TempSlot;//用作存储slot信息
 
     private void Awake()
@@ -27,7 +27,7 @@ public class InventorySaver : MonoBehaviour
                 return inventoryItemList[i];
             }
         }
-        return emptyItem;
+        return InventorySaver.Instance.emptyItem;
     }
 }
 [Serializable]

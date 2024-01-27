@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombineController : MonoBehaviour
@@ -26,7 +24,7 @@ public class CombineController : MonoBehaviour
         {
             tempCombineString += slot.containedItem.item.itemName;
         }
-        resultSlot.containedItem=InventorySaver.Instance.emptyItem;
+        resultSlot.containedItem= InventorySaver.Instance.emptyItem;
         resultSlot.isContainedItem = false;
         combineFormula = null;
         foreach (var formula in combineList)
@@ -34,7 +32,7 @@ public class CombineController : MonoBehaviour
             if (formula.combineString == tempCombineString)
             {
                 combineFormula = formula;
-                resultSlot.containedItem.item = formula.resultItem;
+                resultSlot.containedItem = formula.resultItem;
                 resultSlot.isContainedItem = true;
                 resultSlot.RefreshCombineSlotInfo();
                 readyToCombine = true;
@@ -54,8 +52,8 @@ public class CombineController : MonoBehaviour
                 slot.RefreshCombineSlotInfo();
             }
 
-            InventoryManager.Instance.AddItemToInventory(combineFormula.resultItem, 1);            
-            resultSlot.containedItem = InventorySaver.Instance.emptyItem;            
+            InventoryManager.Instance.AddItemToInventory(combineFormula.resultItem.item, 1);
+            resultSlot.containedItem = InventorySaver.Instance.emptyItem;          
             resultSlot.isContainedItem = false;
         }        
     }
@@ -74,5 +72,5 @@ public class CombineController : MonoBehaviour
 public class Formula
 {
     public string combineString;
-    public Item resultItem;
+    public BagItem resultItem;
 }

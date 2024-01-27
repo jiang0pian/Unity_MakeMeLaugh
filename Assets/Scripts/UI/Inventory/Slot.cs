@@ -54,20 +54,12 @@ public class Slot : MonoBehaviour
     {
         if (containedItem != null)
         {
-            if (isContainedItem == true && containedItem.itemAmount > 0)
+            if (isContainedItem == true)
             {
                 //Debug.Log("into RefreshSlot_isContainedItem == true");
                 amountText.text = "";
                 itemImage.sprite = containedItem.item.itemSprite;
-            }
-            else if (isContainedItem == true && containedItem.itemAmount == 0)
-            {
-                //Debug.Log("into RefreshSlot_isContainedItem == false");
-                amountText.text = "";
-                containedItem = InventorySaver.Instance.emptyItem;
-                itemImage.sprite = containedItem.item.itemSprite;                
-                isContainedItem = false;
-            }
+            }            
             else if (isContainedItem == false)
             {
                 containedItem = InventorySaver.Instance.emptyItem;
