@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GumdropScript : Prop
+public class BoltjellyScript : Prop
 {
-    
 
-    private float distance = 0.0f;              // 橡皮糖圈放置距离玩家的距离
+
+    private float distance = 0.0f;              // Boltjelly放置距离玩家的距离
     public Rigidbody2D anchor;                  // 锚点的刚体
-    private Rigidbody2D rb;                     // 橡皮糖圈的刚体
-    private Collider2D coll;                    // 橡皮糖圈的碰撞器
+    private Rigidbody2D rb;                     // Boltjelly的刚体
+    private Collider2D coll;                    // Boltjelly的碰撞器
     private bool isPressed;                     // 鼠标左键是否按下
-    private bool isCatapult;                    // 橡皮糖圈是否被发射
+    private bool isCatapult;                    // Boltjelly是否被发射
     private float maxDragDistance = 5.0f;       // 最大拉伸距离
     private Vector2 mousePos;                   // 鼠标游戏内坐标
-    private float coefficient = 10.0f;          // 橡皮糖圈的弹射系数
+    private float coefficient = 5.0f;           // Boltjelly的弹射系数
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
     public float detectionRadius = 5.0f;        // 检测半径
 
@@ -23,7 +23,7 @@ public class GumdropScript : Prop
     // 覆写Prop类中的UseProp方法
     public override void UseProp()
     {
-        Debug.Log("使用橡皮糖圈技能\n");
+        Debug.Log("使用Boltjelly技能\n");
 
         // 确保橡皮糖圈预制体非空
         if (itemPrefab != null)
@@ -37,7 +37,7 @@ public class GumdropScript : Prop
             position.x += distance * PlayerController.Instance.lookDirection.x;
             //position.y -= 1.0f;
 
-            // 在偏移位置实例化橡皮糖圈对象
+            // 在偏移位置实例化Boltjelly对象
             Instantiate(itemPrefab, position, Quaternion.identity);
         }
         else
@@ -48,19 +48,19 @@ public class GumdropScript : Prop
 
     private void Start()
     {
-        if(this.GetComponent<Rigidbody2D>()!=null) rb = this.GetComponent<Rigidbody2D>();
+        if (this.GetComponent<Rigidbody2D>() != null) rb = this.GetComponent<Rigidbody2D>();
         coll = this.GetComponent<Collider2D>();
         anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
         //trailRenderer = this.GetComponent<TrailRenderer>();
-        rb.isKinematic = true;                          // 使橡皮糖圈运动状态变为不受外力
-        coll.isTrigger = true;                          // 使橡皮糖圈碰撞不可用，仅作为触发器
+        rb.isKinematic = true;                          // 使Boltjelly运动状态变为不受外力
+        coll.isTrigger = true;                          // 使Boltjelly碰撞不可用，仅作为触发器
         Cursor.visible = true;                          // 使光标可用
         isPressed = false;
         isCatapult = false;
     }
     private void Update()
     {
-        if(rb!=null)
+        if (rb != null)
         {
             // 每帧更新锚点
             anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
@@ -91,7 +91,7 @@ public class GumdropScript : Prop
 
             if (!isPressed && !isCatapult)
             {
-                // 开始瞄准前橡皮圈跟随玩家
+                // 开始瞄准前Boltjelly跟随玩家
                 //Debug.Log(gameObject.name+"未开始瞄准\n");
                 rb.position = anchor.position;
             }
@@ -115,13 +115,13 @@ public class GumdropScript : Prop
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(rb!=null && isCatapult)
+        if (rb != null && isCatapult)
         {
             // 当其他非玩家物体进入触发器时，这个方法会被调用
-            if (Vector2.Distance(other.gameObject.transform.position,anchor.position)>maxDragDistance)
+            if (Vector2.Distance(other.gameObject.transform.position, anchor.position) > maxDragDistance)
             {
                 Debug.Log("触碰到其他触发器:" + other.gameObject.name + "\n");
-                PropEffect(rb);
+                PropEffect(other);
                 Destroy(this.gameObject);
             }
         }
@@ -157,18 +157,14 @@ public class GumdropScript : Prop
         rb_.gravityScale = 8;    // 确保重力影响开启
         // 根据瞄准向量计算施加的力
         Vector2 force = Mathf.Min(Vector2.Distance(mousePos, anchor.position), maxDragDistance) * coefficient * (anchor.position - mousePos).normalized;
-        rb_.AddForce(force,ForceMode2D.Impulse);
+        rb_.AddForce(force, ForceMode2D.Impulse);
     }
 
     // 道具生效后的效果实现
-    private void PropEffect(Rigidbody2D rb_)
+    private void PropEffect(Collider2D other)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(rb_.transform.position, detectionRadius, layerMask);
-        foreach (Collider2D collider in colliders)
-        {
-            GameObject detectedObject = collider.gameObject;
-            // 在这里处理检测到的对象，此处应为改变敌人的状态，使得他们向玩家聚集
-            // ...
-        }
+        // 检查击中的是否是怪物,是的话将被击中的怪物困在原地一段时间
+        // ...
+
     }
 }

@@ -1,22 +1,22 @@
 using UnityEngine;
 
-public class JellyScript : Prop
+public class ColajellyScript : Prop
 {
-    private float distance = 3.0f;              // 果冻放置距离玩家的距离
-    private float jellyForce = 70.0f;           // 果冻的弹力
-    private Rigidbody2D jellyRb;                // 果冻的刚体组件
+    private float distance = 3.0f;              // Colajelly放置距离玩家的距离
+    private float jellyForce = 120.0f;          // Colajelly的弹力
+    private Rigidbody2D jellyRb;                // Colajelly的刚体组件
     public float maxHealth;                     // 最大生命值
     public float currentHealth;                 // 当前生命值
 
     // 覆写Prop类中的UseProp方法
     public override void UseProp()
     {
-        Debug.Log("使用果冻技能\n");
+        Debug.Log("使用Colajelly技能\n");
 
         //// 使用预制体的路径（相对于Resources文件夹）来加载预制体
         //itemPrefab = Resources.Load<GameObject>("Jelly");
 
-        // 确保果冻预制体
+        // 确保Colajelly预制体绑定
         if (itemPrefab != null)
         {
             Debug.Log("itemPrefab获取成功\n");
@@ -28,7 +28,7 @@ public class JellyScript : Prop
             position.x += distance * PlayerController.Instance.lookDirection.x;
             position.y -= 1.0f;
 
-            // 在偏移位置实例化果冻对象
+            // 在偏移位置实例化Colajelly对象
             Instantiate(itemPrefab, position, Quaternion.identity);
         }
         else
@@ -40,12 +40,12 @@ public class JellyScript : Prop
     // Start is called before the first frame update
     void Start()
     {
-        // 获取实例化果冻的Rigidbody2D组件
+        // 获取实例化Colajelly的Rigidbody2D组件
         jellyRb = this.GetComponent<Rigidbody2D>();
         maxHealth = 1;
         currentHealth = 1;
 
-        // 确保果冻对象拥有Rigidbody组件以使其受到重力影响并能够坠落至地面。
+        // 确保Colajelly对象拥有Rigidbody组件以使其受到重力影响并能够坠落至地面。
         if (jellyRb != null)
         {
             jellyRb.mass = 1000000; // 设置一个很大的质量值
@@ -63,7 +63,7 @@ public class JellyScript : Prop
     // 其中至少一个对象的Rigidbody2D设置为非Kinematic，才能检测到碰撞并触发OnCollisionEnter2D方法。
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 获取碰撞果冻的刚体
+        // 获取碰撞Colajelly的刚体
         Rigidbody2D otherRb = collision.collider.GetComponent<Rigidbody2D>();
         if (otherRb != null)
         {
@@ -71,6 +71,7 @@ public class JellyScript : Prop
 
             // 施加瞬时力
             otherRb.AddForce(new Vector2(0, jellyForce), ForceMode2D.Impulse);
+            Destroy(otherRb.gameObject);
 
             //// 获取入射速度向量
             //Vector2 incomingVector = otherRb.velocity;
