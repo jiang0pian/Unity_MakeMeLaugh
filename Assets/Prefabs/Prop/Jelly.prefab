@@ -174,7 +174,6 @@ MonoBehaviour:
   itemName: 
   itemSprite: {fileID: 0}
   itemType: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 2088017555623868932}
   isStackable: 1
   itemInfo: 
-  jellyPrefab: {fileID: 2088017555623868932}

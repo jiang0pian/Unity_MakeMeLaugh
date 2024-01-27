@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JellyScript : Prop
 {
-    public GameObject jellyPrefab;              // 果冻预制体
+    //public GameObject jellyPrefab;              // 果冻预制体
     private float distance = 3.0f;              // 果冻放置距离玩家的距离
     private float jellyForce = 50.0f;           // 果冻的弹力
     private Rigidbody2D jellyRb;                // 果冻的刚体组件
@@ -16,7 +16,7 @@ public class JellyScript : Prop
         //jellyPrefab = Resources.Load<GameObject>("Jelly");
 
         // 确保果冻预制体
-        if (jellyPrefab != null)
+        if (itemPrefab != null)
         {
             Debug.Log("jellyPrefab获取成功\n");
             // 获取玩家当前位置
@@ -27,7 +27,7 @@ public class JellyScript : Prop
             position.y -= 1.0f;
 
             // 在偏移位置实例化果冻对象
-            Instantiate(jellyPrefab, position, Quaternion.identity);
+            Instantiate(itemPrefab, position, Quaternion.identity);
         }
         else
         {
