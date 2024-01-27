@@ -14,7 +14,7 @@ public class cookies : MonoBehaviour
     }
 private void OnCollisionEnter2D(Collision2D collision)
 {
-    Debug.Log(collision.gameObject.tag);
+    
     if (collision.gameObject.CompareTag("Player"))
     {
             animator.SetBool("suilie", true);
@@ -30,7 +30,7 @@ IEnumerator DelayedExecution()
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             isCookiePressd = false;

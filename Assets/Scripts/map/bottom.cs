@@ -22,7 +22,7 @@ public class Bottom : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D collision)
 {
-    Debug.Log(collision.gameObject.tag);
+
     if (collision.gameObject.CompareTag("Player"))
     {
         isButtonPressed = true; 
@@ -31,7 +31,6 @@ private void OnTriggerEnter2D(Collider2D collision)
 
 private void OnTriggerExit2D(Collider2D collision)
 {
-    Debug.Log(collision.gameObject.tag);
     if (collision.gameObject.CompareTag("Player"))
     {      
         isButtonPressed = false;     

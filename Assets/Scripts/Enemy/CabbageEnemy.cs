@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CabbageEnemy : MonoBehaviour
 {
+    
     private new Rigidbody2D rigidbody2D;
 
     public float maxHealth;
@@ -25,6 +26,7 @@ public class CabbageEnemy : MonoBehaviour
 
     private void Awake()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
         lookDirection = new Vector2(1, 0);
     }
 
