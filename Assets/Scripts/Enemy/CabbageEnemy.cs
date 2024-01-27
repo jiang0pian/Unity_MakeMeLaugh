@@ -25,7 +25,6 @@ public class CabbageEnemy : MonoBehaviour
 
     private void Awake()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
         lookDirection = new Vector2(1, 0);
     }
 
@@ -91,6 +90,15 @@ public class CabbageEnemy : MonoBehaviour
         {
             //对玩家造成伤害...................
             Debug.Log("对玩家造成了伤害");
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("attack"))
+        {
+            Debug.Log("攻击到敌人了");
+            ChangeHealth(+3);
         }
     }
 

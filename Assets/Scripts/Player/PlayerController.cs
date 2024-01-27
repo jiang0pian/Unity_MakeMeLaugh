@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         if (gameState == GameState.Gaming)
         {
-            Movement();
+                Movement();
         }
         else if (gameState == GameState.Pause)
         {
@@ -181,30 +181,24 @@ public class PlayerController : MonoBehaviour
         //    //ColajetpackScript.instance.Fly();
             
         //}
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    BagController.Instance.OpenAndCloseBag();
-        //}
-        ////按下 F 键使用果冻
-        //if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
-        //{
-        //    //StartCoroutine(ColarScript.Instance.Spurt());
-        //    //NewBehaviourScript.Instance.UseProp();
-        //    //ColajetpackScript.instance.UseProp();
-        //    ColarScript.instance.UseProp();
-        //}
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    //StartCoroutine(ColarScript.Instance.Spurt());
-        //    //NewBehaviourScript.Instance.UseProp();
-        //    //ColajetpackScript.instance.UseProp();
-        //}
-/*        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            BagController.Instance.OpenAndCloseBag();
+        }
+        //按下 F 键
+        if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
         {
             //StartCoroutine(ColarScript.Instance.Spurt());
             //NewBehaviourScript.Instance.UseProp();
-            Frenchfrie.instance.UseProp();
-        }*/
+            //ColajetpackScript.instance.UseProp();
+            //ColarScript.instance.UseProp();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //StartCoroutine(ColarScript.Instance.Spurt());
+            //NewBehaviourScript.Instance.UseProp();
+            ColajetpackScript.instance.UseProp();
+        }
         //if (Input.GetKeyDown(KeyCode.A))
         //{
         //    rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);

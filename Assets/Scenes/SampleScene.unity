@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 70822148}
   m_Layer: 7
   m_Name: attack4
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 222721752}
   m_Layer: 7
   m_Name: attack3
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6253,7 +6253,7 @@ GameObject:
   - component: {fileID: 1015962648}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7730,7 +7730,7 @@ GameObject:
   - component: {fileID: 1259800083}
   m_Layer: 7
   m_Name: attack1
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8712,7 +8712,7 @@ GameObject:
   - component: {fileID: 1543433810}
   m_Layer: 7
   m_Name: attack area
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9367,6 +9367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabbage
       objectReference: {fileID: 0}
+    - target: {fileID: 914470767064133400, guid: e24e2684ba2c0654d86e302609e2801b, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3068618110694469452, guid: e24e2684ba2c0654d86e302609e2801b, type: 3}
       propertyPath: m_Size.x
       value: 3.77885
@@ -9851,7 +9855,7 @@ GameObject:
   - component: {fileID: 1939240572}
   m_Layer: 7
   m_Name: attack2
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
