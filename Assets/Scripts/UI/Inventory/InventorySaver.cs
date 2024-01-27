@@ -10,7 +10,6 @@ public class InventorySaver : MonoBehaviour
     
     public List<BagItem> inventoryItemList;
     public BagItem emptyItem;
-    public BagItem emptyItemSave;
     public Slot TempSlot;//用作存储slot信息
 
     private void Awake()

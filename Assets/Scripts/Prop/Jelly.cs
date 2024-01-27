@@ -1,40 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class JellyScript : Prop
+public class Jelly : MonoBehaviour
 {
-    public GameObject jellyPrefab;              // 果冻预制体
-    public Transform playerTransform;           // 玩家的Transform组件
-    private GameObject jellyInstance;           // 实例化的果冻对象
-    private Rigidbody2D jellyRb;                // 实例化的果冻的刚体组件
-    private float jellyForce = 70.0f;            // 果冻的弹力
+    private float jellyForce = 70.0f;           // 果冻的弹力
+    private Rigidbody2D jellyRb;                // 果冻的刚体组件
 
-    // 覆写Prop类中的UseProp方法
-    public override void UseProp()
+    // Start is called before the first frame update
+    void Start()
     {
-        // 确保果冻预制体
-        if (jellyPrefab != null && playerTransform != null)
+        // 获取实例化果冻的Rigidbody2D组件
+        jellyRb = this.GetComponent<Rigidbody2D>();
+
+        // 确保果冻对象拥有Rigidbody组件以使其受到重力影响并能够坠落至地面。
+        if (jellyRb != null)
         {
-            // 在玩家当前位置实例化果冻对象
-            jellyInstance = Instantiate(jellyPrefab, playerTransform.position, Quaternion.identity);
-
-            // 获取实例化果冻的Rigidbody2D组件
-            jellyRb = jellyInstance.GetComponent<Rigidbody2D>();
-
-            // 如果果冻有Rigidbody2D组件，则设置其质量为一个很大的值
-            if (jellyRb != null)
-            {
-                jellyRb.mass = 1000; // 设置一个很大的质量值
-                jellyRb.gravityScale = 1; // 确保果冻受到重力影响，可以根据需要调整
-            }
+            jellyRb.mass = 1000000; // 设置一个很大的质量值
+            jellyRb.gravityScale = 1; // 确保果冻受到重力影响，可以根据需要调整
         }
     }
 
-    void Start()
+    // Update is called once per frame
+    void Update()
     {
-        // 在Start方法中可以执行初始化操作
-        // 例如：获取组件、设置初始状态等
+        
     }
-
     // 确保你的2D游戏对象有相应的Collider2D组件（如BoxCollider2D, CircleCollider2D等）
     // 并且碰撞的对象也需要有Collider2D组件
     // 其中至少一个对象的Rigidbody2D设置为非Kinematic，才能检测到碰撞并触发OnCollisionEnter2D方法。
@@ -71,7 +62,5 @@ public class JellyScript : Prop
         {
             Debug.Log("otherRb==null\n");
         }
-
-
     }
 }
