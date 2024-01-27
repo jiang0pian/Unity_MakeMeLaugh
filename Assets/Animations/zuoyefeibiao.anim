@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: penqibeibao
+  m_Name: zuoyefeibiao
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -17,21 +17,49 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves: []
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 7957f538d3aa2c548822eb1bca943afc, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300000, guid: 84f67131041898143aa1e787776eac6b, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: d28f5374940e0584c83b0b80c4f95d45, type: 3}
+    - time: 0.36666667
+      value: {fileID: 21300000, guid: 1af36b719c46c5e469628a1c50c6f0e1, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 7957f538d3aa2c548822eb1bca943afc, type: 3}
+    - {fileID: 21300000, guid: 84f67131041898143aa1e787776eac6b, type: 3}
+    - {fileID: 21300000, guid: d28f5374940e0584c83b0b80c4f95d45, type: 3}
+    - {fileID: 21300000, guid: 1af36b719c46c5e469628a1c50c6f0e1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.38333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

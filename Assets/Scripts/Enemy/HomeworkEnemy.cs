@@ -34,7 +34,7 @@ public class HomeworkEnemy : MonoBehaviour
 
     public GameObject enemySprite;
     public GameObject bulletPrefab;
-
+    public Animator animator;
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,23 +43,31 @@ public class HomeworkEnemy : MonoBehaviour
         haveEscape = false;
         lookDirection = new Vector2(1, 0);
     }
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
         if (isGetAttaack == false)
         {
             Move();
+            
             if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
             {
                 shouldAttack = true;
+                
                 if (attackTimer < 0)
                 {
+                    animator.SetTrigger("isattack");
+                    animator.SetBool("ismove", false);
                     attackTimer = attackTime;
                     StartCoroutine(Fire());
                 }
             }
             else
-            {
+            {                
                 shouldAttack = false;
             }
             attackTimer -= Time.deltaTime;
@@ -72,9 +80,10 @@ public class HomeworkEnemy : MonoBehaviour
 
     void Move()
     {
+        animator.SetBool("ismove", true);
         //移动模式
         if (isFindPlayer == true)
-        {
+        {          
             AttackMove();
         }
         else
@@ -95,6 +104,7 @@ public class HomeworkEnemy : MonoBehaviour
 
     void IdleMove()
     {
+        animator.SetBool("ismove",true);
         //巡逻移动
         if (moveTimer < 0)
         {
@@ -109,8 +119,10 @@ public class HomeworkEnemy : MonoBehaviour
 
     void AttackMove()
     {
+        animator.SetBool("ismove", true);
         if (escapeRange.OverlapPoint(PlayerController.Instance.transform.position))
         {
+            
             haveEscape = true;
             if (transform.position.x < PlayerController.Instance.transform.position.x)
             {
@@ -168,6 +180,7 @@ public class HomeworkEnemy : MonoBehaviour
 
     public IEnumerator Fire()
     {
+        
         //GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
         GameObject bullet;
         if (haveEscape == true)

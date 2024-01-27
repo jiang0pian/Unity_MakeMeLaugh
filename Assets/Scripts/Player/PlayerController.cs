@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
 
     public bool isSpurt = false;
+    public Vector2 chongshengdian;
 
     //ÈËÎï³¯Ïò
     public Vector2 lookDirection;
@@ -71,6 +72,10 @@ public class PlayerController : MonoBehaviour
         {
             ColajetpackScript.instance.Fly();
         }
+        if (transform.position.y < -70f)
+        {
+          transform.position= chongshengdian;
+        }
     }
     private void FixedUpdate()
     {
@@ -82,6 +87,7 @@ public class PlayerController : MonoBehaviour
         {
 
         }
+
     }
     //Player Movement
     public void Movement()
