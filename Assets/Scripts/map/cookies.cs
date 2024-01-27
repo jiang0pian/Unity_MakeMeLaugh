@@ -14,12 +14,13 @@ private void OnCollisionEnter2D(Collision2D collision)
     if (collision.gameObject.CompareTag("Player"))
     {
         StartCoroutine(DelayedExecution());
+           animator.SetBool("suilie",true);
         }
 }
 
 IEnumerator DelayedExecution()
 {
-    yield return new WaitForSeconds(3.0f);
+    yield return new WaitForSeconds(1.0f);
     isCookiePressd = true;
 }
 
@@ -33,7 +34,7 @@ IEnumerator DelayedExecution()
     }
     void Update()
     {
-        
+        animator = GetComponent<Animator>();
         if (isCookiePressd)
         {                             
             Destroy(gameObject);

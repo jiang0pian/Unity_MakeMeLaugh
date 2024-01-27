@@ -199,6 +199,12 @@ public class PlayerController : MonoBehaviour
             //NewBehaviourScript.Instance.UseProp();
             //ColajetpackScript.instance.UseProp();
         }
+/*        if (Input.GetKeyDown(KeyCode.P))
+        {
+            //StartCoroutine(ColarScript.Instance.Spurt());
+            //NewBehaviourScript.Instance.UseProp();
+            Frenchfrie.instance.UseProp();
+        }*/
         //if (Input.GetKeyDown(KeyCode.A))
         //{
         //    rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
