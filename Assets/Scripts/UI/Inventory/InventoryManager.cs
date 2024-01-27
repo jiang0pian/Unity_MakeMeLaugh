@@ -48,7 +48,6 @@ public class InventoryManager : MonoBehaviour
             if (InventorySaver.Instance.inventoryItemList.Find(x => x.item == itemToReduce).itemAmount == 0)
             {
                 InventorySaver.Instance.inventoryItemList.Remove(InventorySaver.Instance.inventoryItemList.Find(x => x.item == itemToReduce));
-
             }
         }
         else

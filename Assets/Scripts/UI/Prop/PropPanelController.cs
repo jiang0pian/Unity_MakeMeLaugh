@@ -64,7 +64,7 @@ public class PropPanelController : MonoBehaviour
         GameObject tempGameObject = Instantiate(PropSlots[index].containedItem.item.itemPrefab, clutterManager.transform);
         tempGameObject.GetComponent<Prop>().UseProp();
         if (InventorySaver.Instance.inventoryItemList.Exists(x => (x.item == PropSlots[index].containedItem.item && x.propIndex==index+1)) == true)
-        {
+        {            
             InventorySaver.Instance.inventoryItemList.Remove(InventorySaver.Instance.inventoryItemList.Find(x => x.item == PropSlots[index].containedItem.item));
         }
             StartCoroutine(DestoryThisObject(tempGameObject));
