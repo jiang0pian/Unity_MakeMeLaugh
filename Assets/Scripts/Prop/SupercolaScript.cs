@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : Prop
+public class SupercolaScript : Prop
 {
-    public static NewBehaviourScript Instance;
+    public static SupercolaScript Instance;
     public float spurtForce = 10f;
     private Vector2 force;
 

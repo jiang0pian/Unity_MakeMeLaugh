@@ -4,9 +4,9 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ColarScript : Prop
+public class ColaScript : Prop
 {
-    public static ColarScript instance;
+    public static ColaScript instance;
     public float spurtForce = 1f;
     public float spurtTime = 1;
 

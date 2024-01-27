@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7311a5a1ba7ea6e4d9f483a76c07849f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Jelly
   itemSprite: {fileID: 0}
-  itemType: 
+  itemType: prop
   itemPrefab: {fileID: 2088017555623868932}
   isStackable: 0
-  itemInfo: 
+  itemInfo: "\u628A\u6709\u5F39\u6027\u7684\u679C\u51BB\u653E\u7F6E\u5728\u5730\u9762\u4E0A\uFF0C\u53EF\u4EE5\u88AB\u7834\u574F\u6389"
