@@ -27,6 +27,11 @@ public class EnemyController : MonoBehaviour
         lookDirection = new Vector2(1, 0);
     }
 
+    void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -102,4 +107,17 @@ public class EnemyController : MonoBehaviour
             enemyAttribute.currentHealth = enemyAttribute.maxHealth;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("attack"))
+        {
+            Debug.Log(collision.gameObject.tag);
+            Debug.Log("攻击到敌人了");
+
+                Debug.Log("敌人扣血了");
+                ChangeHealth(+3); 
+        }
+    }
+
 }
