@@ -4742,7 +4742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1265465584
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5068,11 +5068,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryItemList: []
   emptyItem:
-    item: {fileID: 5884318893360061605, guid: c598fad6e62701746819d5468c5924fb, type: 3}
-    itemAmount: 0
-    isInBag: 0
-    isInCombinePanle: 0
-  emptyItemSave:
     item: {fileID: 5884318893360061605, guid: c598fad6e62701746819d5468c5924fb, type: 3}
     itemAmount: 0
     isInBag: 0
