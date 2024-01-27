@@ -27,6 +27,10 @@ public class CarrotEnemy : MonoBehaviour
 
     private bool isGetAttaack = false;
 
+    public float spurtForce = 400f;
+
+    public float spurtTime = 30f;
+
     public GameObject enemySprite;
 
     private void Awake()
@@ -153,8 +157,8 @@ public class CarrotEnemy : MonoBehaviour
     {
         attackTimer = 3f;
         isGetAttaack = true;
-        rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * 400);
-        yield return new WaitForSeconds(30f * Time.deltaTime);
+        rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * spurtForce);
+        yield return new WaitForSeconds(spurtTime * Time.deltaTime);
         isGetAttaack = false;
     }
 }
