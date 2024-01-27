@@ -46,13 +46,11 @@ public class CabbageEnemy : MonoBehaviour
             {
                 lookDirection.x = 1;
                 enemySprite.transform.localScale = new Vector3(lookDirection.x, enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
-
             }
             else
             {
                 lookDirection.x = -1;
                 enemySprite.transform.localScale = new Vector3(lookDirection.x, enemySprite.transform.localScale.y, enemySprite.transform.localScale.z);
-
             }
         }
     }

@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class CarrotEnemy : MonoBehaviour
+public class DecaytoothEnemy : MonoBehaviour
 {
     private new Rigidbody2D rigidbody2D;
 
@@ -44,7 +42,7 @@ public class CarrotEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isGetAttaack == false)
+        if (isGetAttaack == false)
         {
             Move();
             if (attackRange.OverlapPoint(PlayerController.Instance.transform.position))
@@ -61,7 +59,7 @@ public class CarrotEnemy : MonoBehaviour
             attackTimer -= Time.deltaTime;
         }
 
-        
+
     }
 
     void Move()
@@ -82,8 +80,8 @@ public class CarrotEnemy : MonoBehaviour
             //{
             //    isFindPlayer = true;
             //}
-            
-            if(pursuitRange.OverlapPoint(PlayerController.Instance.transform.position))
+
+            if (pursuitRange.OverlapPoint(PlayerController.Instance.transform.position))
             {
                 isFindPlayer = true;
             }
@@ -129,6 +127,11 @@ public class CarrotEnemy : MonoBehaviour
 
     public void ChangeHealth(float damage, bool isCarbonicAcid)
     {
+        if(isCarbonicAcid == true)
+        {
+            //÷±Ω”±ª√Î…±
+            return;
+        }
         currentHealth += damage;
         if (currentHealth < 0)
         {
