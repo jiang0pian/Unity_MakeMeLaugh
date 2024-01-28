@@ -15749,10 +15749,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: zhuya
       objectReference: {fileID: 0}
-    - target: {fileID: 6728772092099961094, guid: efdc0ecbf8483b44b8fe4cd49ce280e6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
