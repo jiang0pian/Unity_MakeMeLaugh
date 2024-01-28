@@ -269,6 +269,7 @@ public class PlayerController : MonoBehaviour
             //NewBehaviourScript.Instance.UseProp();
             //ColajetpackScript.instance.UseProp();
             //BoltfrieScript.instance.UseProp();
+            ColafrielassoScript.instance.UseProp();
         }
         //if (Input.GetKeyDown(KeyCode.A))
         //{
