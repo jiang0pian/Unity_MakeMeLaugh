@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5312439350101882191
+--- !u!1 &5920469542315604567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 401620459188596934}
-  - component: {fileID: 94585635034320650}
+  - component: {fileID: 5290229478920402530}
+  - component: {fileID: 4085501449200822191}
   m_Layer: 0
-  m_Name: Frenchfrie
+  m_Name: Colafrie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &401620459188596934
+--- !u!4 &5290229478920402530
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5312439350101882191}
+  m_GameObject: {fileID: 5920469542315604567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.033335, y: -2.166667, z: 90}
@@ -32,21 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &94585635034320650
+--- !u!114 &4085501449200822191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5312439350101882191}
+  m_GameObject: {fileID: 5920469542315604567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93ffb38169bd574286a312c81747f0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9628823662c398b4488c8cbfa30e1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Frenchfrie
-  itemSprite: {fileID: 21300000, guid: 37ca3af8df8e3e04f955fee8225c2630, type: 3}
+  itemName: Colafrie
+  itemSprite: {fileID: 21300000, guid: 444cabfad0c82fe4891abffbefd8ca8e, type: 3}
   itemType: prop
-  itemPrefab: {fileID: 5312439350101882191}
+  itemPrefab: {fileID: 5920469542315604567}
   isStackable: 0
-  itemInfo: "\u4E00\u8D77\u53BB\u7801\u5934\u635E\u70B9\u85AF\u6761\uFF01\u8FDB\u884C\u6325\u821E\u653B\u51FB"
+  itemInfo: "\u6CBE\u4E86\u53EF\u4E50\u7684\u85AF\u6761\uFF0C\u653B\u51FB\u63D0\u5347\uFF0C\u9020\u6210\u78B3\u9178\u4F24\u5BB3"

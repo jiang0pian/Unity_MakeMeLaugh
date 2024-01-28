@@ -6,13 +6,13 @@ public class Colafrie : Prop
 {
     public override void UseProp()
     {
-        PlayerController.Instance.isFrenchfrie = true;
+        PlayerController.Instance.isColafrie = true;
         StartCoroutine(Frenchfrie());
     }
 
     public IEnumerator Frenchfrie()
     {
         yield return new WaitForSeconds(0.5f);
-        PlayerController.Instance.isFrenchfrie = false;
+        PlayerController.Instance.isColafrie = false;
     }
 }

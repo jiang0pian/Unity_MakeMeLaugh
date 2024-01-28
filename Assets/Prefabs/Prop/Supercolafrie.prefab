@@ -52,7 +52,7 @@ MonoBehaviour:
   itemType: prop
   itemPrefab: {fileID: 8334383146880670151}
   isStackable: 0
-  itemInfo: 
+  itemInfo: "\u51B2\u523A\u4E4B\u540E\u5411\u540E\u65B9\u5C04\u51FA\u4E00\u6839\u85AF\u6761"
   layerMask:
     serializedVersion: 2
     m_Bits: 0

@@ -6138,6 +6138,7 @@ MonoBehaviour:
   playerAttribute: {fileID: 831782406}
   gameState: 0
   isFrenchfrie: 0
+  isColafrie: 0
 --- !u!114 &831782413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17316,6 +17317,63 @@ MonoBehaviour:
   radomAwardAmount: 3
   appointAwardAmountList: 0000000000000000000000000000000001000000
   isGetRadom: 0
+--- !u!1001 &5857953982719494440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.033335
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.166667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290229478920402530, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920469542315604567, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
+      propertyPath: m_Name
+      value: Colafrie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34faf7399a0f0e841afb13c580cbdf10, type: 3}
 --- !u!61 &7986367985473127671
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17447,3 +17505,4 @@ SceneRoots:
   - {fileID: 860049753}
   - {fileID: 45269431}
   - {fileID: 1781709631}
+  - {fileID: 5857953982719494440}

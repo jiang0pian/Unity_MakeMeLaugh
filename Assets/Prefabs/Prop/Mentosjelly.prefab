@@ -52,7 +52,7 @@ MonoBehaviour:
   itemType: prop
   itemPrefab: {fileID: 8214420751727228522}
   isStackable: 0
-  itemInfo: 
+  itemInfo: "\u679C\u51BB\u5185\u585E\u4E00\u9897\u66FC\u59A5\u601D\uFF0C\u53D8\u6210\u5939\u5FC3\u679C\u51BB\uFF0C\u786C\u5EA6\u53D8\u786C\u4E86"
   maxHealth: 0
   currentHealth: 0
 --- !u!50 &2810288293454240056

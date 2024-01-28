@@ -51,7 +51,7 @@ MonoBehaviour:
   itemType: prop
   itemPrefab: {fileID: 7150643870950583675}
   isStackable: 0
-  itemInfo: 
+  itemInfo: "\u6A61\u76AE\u7CD6\u4F5C\u4E3A\u5957\u7D22\uFF0C\u53EF\u4E50\u85AF\u6761\u4F5C\u4E3A\u7EF3\u5B50\uFF0C\u7529\u8D77\u6765\uFF01"
   attackDurationTime: 1
   lassoDurationTime: 10
 --- !u!61 &1468171492712791938

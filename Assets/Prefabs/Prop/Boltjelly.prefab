@@ -52,12 +52,13 @@ MonoBehaviour:
   itemType: prop
   itemPrefab: {fileID: 2774139016128815874}
   isStackable: 0
-  itemInfo: 
+  itemInfo: "\u53D1\u5C04\u679C\u51BB\uFF0C\u5C06\u88AB\u51FB\u4E2D\u7684\u602A\u7269\u56F0\u5728\u539F\u5730"
   anchor: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
   detectionRadius: 5
+  freezeTime: 3
 --- !u!50 &2166095482104083446
 Rigidbody2D:
   serializedVersion: 4
