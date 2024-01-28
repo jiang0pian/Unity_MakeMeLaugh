@@ -67,9 +67,6 @@ public class DecaytoothEnemy : MonoBehaviour
                 attackTimer -= Time.deltaTime;
             }
         }
-        
-
-
     }
     public IEnumerator BeginAction()
     {
