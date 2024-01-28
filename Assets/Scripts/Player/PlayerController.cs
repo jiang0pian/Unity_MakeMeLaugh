@@ -104,6 +104,11 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("penqi", false);
         }
+        if (isFrenchfrie)
+        {
+            animator.SetTrigger("shutiao");
+        }
+
     }
     private void FixedUpdate()
     {
