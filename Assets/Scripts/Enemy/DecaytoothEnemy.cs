@@ -145,9 +145,9 @@ public class DecaytoothEnemy : EnemyController
             return;
         }
         currentHealth += damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            Destroy(gameObject);
         }
         else if (currentHealth > maxHealth)
         {
@@ -176,7 +176,6 @@ public class DecaytoothEnemy : EnemyController
     {
         if (collision.gameObject.CompareTag("attack"))
         {
-            Debug.Log("π•ª˜µΩµ–»À¡À");
             ChangeHealth(-3,false);
             animator.SetTrigger("beida");
         }

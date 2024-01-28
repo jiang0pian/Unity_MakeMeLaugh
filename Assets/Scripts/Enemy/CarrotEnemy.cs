@@ -138,9 +138,9 @@ public class CarrotEnemy : EnemyController
     public override void ChangeHealth(float damage, bool isCarbonicAcid)
     {
         currentHealth += damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            Destroy(gameObject);
         }
         else if (currentHealth > maxHealth)
         {

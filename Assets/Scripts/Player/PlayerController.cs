@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isMoving;
     public float isMovingThreshold;
-    public float getHitTimeInterval = 0.5f;
+    public float getHitTimeInterval = 1f;
     public float getHitCounter;
 
     public bool isUsingColajetpack = false;
@@ -210,7 +210,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             Debug.Log("±»¹¥»÷ÁË");
-            ChangeHealth(-1);
+            if (getHitCounter <= 0)
+            {
+                ChangeHealth(-1);
+                getHitCounter = getHitTimeInterval;
+            }
+            
             animator.SetTrigger("shouji");
         }
     }

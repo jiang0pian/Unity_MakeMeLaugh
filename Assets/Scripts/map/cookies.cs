@@ -41,8 +41,7 @@ IEnumerator DelayedExecution()
         
         if (isCookiePressd)
         {                             
-            Destroy(gameObject);
-            
+            Destroy(gameObject);           
         }
         
     }
