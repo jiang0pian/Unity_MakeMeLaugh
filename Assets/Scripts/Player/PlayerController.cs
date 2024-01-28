@@ -171,12 +171,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("enemy"))
         {
             Debug.Log("±»¹¥»÷ÁË");
             ChangeHealth(-1);
-                animator.SetTrigger("shouji");
+               animator.SetTrigger("shouji");
         }
     }
     private void OnCollisionrEnter2D(Collider2D collision)
