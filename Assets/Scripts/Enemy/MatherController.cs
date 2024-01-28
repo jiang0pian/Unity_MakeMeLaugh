@@ -18,6 +18,7 @@ public class MatherController : MonoBehaviour
     public float changeDirectionTime = 4f;
     private float changeDirectionTimer = -1f;
     private Vector3 lookDirection = new Vector3(1, 0, 0);
+    public Animator animator;
 
     //Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up* 5f + -1 * lookDirection* 5f, Quaternion.identity);
 
@@ -28,7 +29,7 @@ public class MatherController : MonoBehaviour
 
     private void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -56,6 +57,7 @@ public class MatherController : MonoBehaviour
 
     public void CreateEnemy()
     {
+        animator.SetTrigger("aa");
         int randomIntInclusive = Random.Range(0, 100);
         GameObject enemy = Instantiate(Prefabs[randomIntInclusive % 4], transform.position, Quaternion.identity);
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1) * 3000f);
