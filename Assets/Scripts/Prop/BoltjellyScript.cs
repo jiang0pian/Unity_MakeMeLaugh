@@ -123,7 +123,7 @@ public class BoltjellyScript : Prop
             {
                 Debug.Log("触碰到其他触发器:" + other.gameObject.name + "\n");
                 PropEffect(other);
-                Destroy(this.gameObject);
+                
             }
         }
     }
@@ -155,7 +155,7 @@ public class BoltjellyScript : Prop
     private void Catapult(Rigidbody2D rb_)
     {
         rb_.isKinematic = false; // 确保物体不是运动学的
-        rb_.gravityScale = 8;    // 确保重力影响开启
+        rb_.gravityScale = 1;    // 确保重力影响开启
         // 根据瞄准向量计算施加的力
         Vector2 force = Mathf.Min(Vector2.Distance(mousePos, anchor.position), maxDragDistance) * coefficient * (anchor.position - mousePos).normalized;
         rb_.AddForce(force, ForceMode2D.Impulse);
@@ -164,6 +164,7 @@ public class BoltjellyScript : Prop
     // 道具生效后的效果实现
     private void PropEffect(Collider2D other)
     {
+        Destroy(this.gameObject);
         // 检查击中的是否是怪物,是的话将被击中的怪物困在原地一段时间
         if (other.gameObject.GetComponent<EnemyController>() != null)
         {
@@ -176,14 +177,16 @@ public class BoltjellyScript : Prop
     {
         // 保存原来的约束
         RigidbodyConstraints2D originalConstraints = enemyRb.constraints;
-
+        Debug.Log("冻结\n");
         // 固定 Rigidbody2D 位置和旋转
         enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         // 等待一段时间
         yield return new WaitForSeconds(duration);
 
+        Debug.Log("恢复移动\n");
         // 恢复原来的约束
         enemyRb.constraints = originalConstraints;
+        
     }
 }
