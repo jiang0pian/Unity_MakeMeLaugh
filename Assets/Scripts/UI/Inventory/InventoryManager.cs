@@ -104,18 +104,36 @@ public class InventoryManager : MonoBehaviour
 
     public void GetRadomProp(int amount)
     {
-        getRadomAwardPanel.SetActive(true);
-        int childCount = getRadomAwardPanel.transform.childCount;
-        for (int i=0;i< childCount; i++)
-        {
-            Destroy(getRadomAwardPanel.transform.GetChild(0));
-        }
-        for(int i = 0; i < amount; i++)
+        getRadomAwardPanel.transform.parent.gameObject.SetActive(true);
+        Cursor.visible = true;
+        for (int i = 0; i < amount; i++)
         {
             Item temp= InventorySaver.Instance.PropList[Random.Range(0, 5)];
             AddItemToInventory(temp, 1);
             awardImage.sprite = temp.itemSprite;
             Instantiate(awardImage, getRadomAwardPanel.transform);
         }       
+    }
+    public void GetProp(int amount,int index)
+    {
+        getRadomAwardPanel.transform.parent.gameObject.SetActive(true);
+        Cursor.visible = true;
+        for (int i = 0; i < amount; i++)
+        {
+            Item temp = InventorySaver.Instance.PropList[index];
+            AddItemToInventory(temp, 1);
+            awardImage.sprite = temp.itemSprite;
+            Instantiate(awardImage, getRadomAwardPanel.transform);
+        }
+    }
+    public void CloseAwardPanel()
+    {
+        getRadomAwardPanel.transform.parent.gameObject.SetActive(false);
+        Cursor.visible = false;
+        int childAmount = getRadomAwardPanel.transform.childCount;
+        for(int i = childAmount - 1; i >= 0; i--)
+        {
+            Destroy(getRadomAwardPanel.transform.GetChild(i).gameObject);
+        }
     }
 }
