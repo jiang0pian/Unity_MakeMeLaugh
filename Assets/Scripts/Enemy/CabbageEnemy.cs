@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CabbageEnemy : EnemyController
 {
-    
     private new Rigidbody2D rigidbody2D;
+
 
     public float jumpForce = 50f;
 
@@ -22,7 +22,6 @@ public class CabbageEnemy : EnemyController
 
     public GameObject enemySprite;
 
-    public bool beginAction = false;
 
     private void Awake()
     {
@@ -109,7 +108,7 @@ public class CabbageEnemy : EnemyController
         if (collision.gameObject.CompareTag("attack"))
         {
             Debug.Log("π•ª˜µΩµ–»À¡À");
-            ChangeHealth(-3);
+            //ChangeHealth(-3);
         }
     }
 

@@ -8,7 +8,6 @@ public class CarrotEnemy : EnemyController
 {
     private new Rigidbody2D rigidbody2D;
 
-    public float moveSpeed;
 
     private bool isFindPlayer;
 
@@ -31,7 +30,6 @@ public class CarrotEnemy : EnemyController
 
     public GameObject enemySprite;
     public Animator animator;
-    public bool beginAction = false;
 
 
     private void Awake()

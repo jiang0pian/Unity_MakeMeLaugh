@@ -6,7 +6,6 @@ public class DecaytoothEnemy : EnemyController
 {
     private new Rigidbody2D rigidbody2D;
 
-    public float moveSpeed;
 
     private bool isFindPlayer;
 
@@ -29,7 +28,7 @@ public class DecaytoothEnemy : EnemyController
 
     public GameObject enemySprite;
 
-    public bool beginAction = false;
+    
     public Animator animator;
 
     private void Awake()

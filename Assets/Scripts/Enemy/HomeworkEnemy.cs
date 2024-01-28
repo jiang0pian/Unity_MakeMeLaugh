@@ -6,7 +6,6 @@ public class HomeworkEnemy : EnemyController
 {
     private new Rigidbody2D rigidbody2D;
 
-    public float moveSpeed;
 
     private bool isFindPlayer;
     private bool shouldAttack;
@@ -33,7 +32,6 @@ public class HomeworkEnemy : EnemyController
     public GameObject enemySprite;
     public GameObject bulletPrefab;
 
-    public bool beginAction = false;
     public Animator animator;
 
     private void Awake()
