@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class InventoryManager : MonoBehaviour
 
     public TMP_Text itemIntroduction;
 
+    public GameObject getRadomAwardPanel;
+    public Image awardImage;
+    
     public void AddItemToInventory(Item itemToAdd, int amountToAdd)
     {
         if (itemToAdd.isStackable == true)
@@ -78,7 +82,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (slotInChoose.GetComponent<Slot>().isContainedItem == true)
         {
-            itemIntroduction.text = slotInChoose.GetComponent<Slot>().containedItem.item.itemName + "\n" + slotInChoose.GetComponent<Slot>().containedItem.item.itemInfo;
+            itemIntroduction.text = slotInChoose.GetComponent<Slot>().containedItem.item.itemInfo;
         }
     }
 
@@ -96,5 +100,22 @@ public class InventoryManager : MonoBehaviour
             }
             slotLists[i].GetComponent<Slot>().RefreshBagSlotInfo();
         }
+    }
+
+    public void GetRadomProp(int amount)
+    {
+        getRadomAwardPanel.SetActive(true);
+        int childCount = getRadomAwardPanel.transform.childCount;
+        for (int i=0;i< childCount; i++)
+        {
+            Destroy(getRadomAwardPanel.transform.GetChild(0));
+        }
+        for(int i = 0; i < amount; i++)
+        {
+            Item temp= InventorySaver.Instance.PropList[Random.Range(0, 5)];
+            AddItemToInventory(temp, 1);
+            awardImage.sprite = temp.itemSprite;
+            Instantiate(awardImage, getRadomAwardPanel.transform);
+        }       
     }
 }

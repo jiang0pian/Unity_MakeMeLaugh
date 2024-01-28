@@ -12,6 +12,8 @@ public class InventorySaver : MonoBehaviour
     public BagItem emptyItem;    
     public Slot TempSlot;//用作存储slot信息
 
+    public List<Item> PropList;
+
     private void Awake()
     {
         Instance = this;
