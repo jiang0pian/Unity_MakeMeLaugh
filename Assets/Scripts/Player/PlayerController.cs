@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isFrenchfrie;
     public bool isColafrie;
+    public bool isShiled;
     void Start () {
         animator = GetComponent<Animator>();
       }
@@ -199,8 +201,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             Debug.Log("被攻击了");
-            ChangeHealth(-1);
-               animator.SetTrigger("shouji");
+            if (getHitCounter <= 0)
+            {
+                if (isShiled==true)
+                {
+                    isShiled = false;
+                    return;
+                }
+                ChangeHealth(-1);
+                animator.SetTrigger("shouji");
+                getHitCounter = getHitTimeInterval;
+            }
         }
     }
     private void OnCollisionrEnter2D(Collider2D collision)
@@ -213,11 +224,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log("被攻击了");
             if (getHitCounter <= 0)
             {
+                if (isShiled == true)
+                {
+                    isShiled = false;
+                    return;
+                }
                 ChangeHealth(-1);
+                animator.SetTrigger("shouji");
                 getHitCounter = getHitTimeInterval;
             }
             
-            animator.SetTrigger("shouji");
+            
         }
     }
     private void GetKeyDown()
