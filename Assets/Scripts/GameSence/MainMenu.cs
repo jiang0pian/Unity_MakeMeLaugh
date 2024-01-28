@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
     public IEnumerator StoryEnd()
     {
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0) && isButtonResealed==true);
-        SceneManager.LoadScene(mainGameScene);
+        SceneManager.LoadScene("xinshoujiaocheng");
     }
     public IEnumerator OnLeftButtonClick()
     {
