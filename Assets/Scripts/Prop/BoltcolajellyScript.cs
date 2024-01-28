@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BoltjellyScript : Prop
+public class BoltcolajellyScript : Prop
 {
 
 
-    private float distance = 0.0f;              // Boltjelly放置距离玩家的距离
+    private float distance = 0.0f;              // Boltcolajelly放置距离玩家的距离
     public Rigidbody2D anchor;                  // 锚点的刚体
-    private Rigidbody2D rb;                     // Boltjelly的刚体
-    private Collider2D coll;                    // Boltjelly的碰撞器
+    private Rigidbody2D rb;                     // Boltcolajelly的刚体
+    private Collider2D coll;                    // Boltcolajelly的碰撞器
     private bool isPressed;                     // 鼠标左键是否按下
-    private bool isCatapult;                    // Boltjelly是否被发射
+    private bool isCatapult;                    // Boltcolajelly是否被发射
     private float maxDragDistance = 5.0f;       // 最大拉伸距离
     private Vector2 mousePos;                   // 鼠标游戏内坐标
-    private float coefficient = 5.0f;           // Boltjelly的弹射系数
+    private float coefficient = 7.0f;           // Boltcolajelly的弹射系数
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
-    public float freezeTime = 3.0f;             // 怪物在原地被困住的时长
+    private float damage = 2.0f;                // 伤害值
 
 
     // 覆写Prop类中的UseProp方法
     public override void UseProp()
     {
-        Debug.Log("使用Boltjelly技能\n");
+        Debug.Log("使用Boltcolajelly技能\n");
 
         // 确保橡皮糖圈预制体非空
         if (itemPrefab != null)
@@ -37,7 +37,7 @@ public class BoltjellyScript : Prop
             position.x += distance * PlayerController.Instance.lookDirection.x;
             //position.y -= 1.0f;
 
-            // 在偏移位置实例化Boltjelly对象
+            // 在偏移位置实例化Boltcolajelly对象
             Instantiate(itemPrefab, position, Quaternion.identity);
         }
         else
@@ -52,8 +52,8 @@ public class BoltjellyScript : Prop
         coll = this.GetComponent<Collider2D>();
         anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
         //trailRenderer = this.GetComponent<TrailRenderer>();
-        rb.isKinematic = true;                          // 使Boltjelly运动状态变为不受外力
-        coll.isTrigger = true;                          // 使Boltjelly碰撞不可用，仅作为触发器
+        rb.isKinematic = true;                          // 使Boltcolajelly运动状态变为不受外力
+        coll.isTrigger = true;                          // 使Boltcolajelly碰撞不可用，仅作为触发器
         Cursor.visible = true;                          // 使光标可用
         isPressed = false;
         isCatapult = false;
@@ -91,7 +91,7 @@ public class BoltjellyScript : Prop
 
             if (!isPressed && !isCatapult)
             {
-                // 开始瞄准前Boltjelly跟随玩家
+                // 开始瞄准前Boltcolajelly跟随玩家
                 //Debug.Log(gameObject.name+"未开始瞄准\n");
                 rb.position = anchor.position;
             }
@@ -122,7 +122,6 @@ public class BoltjellyScript : Prop
             {
                 Debug.Log("触碰到其他触发器:" + other.gameObject.name + "\n");
                 PropEffect(other);
-                
             }
         }
     }
@@ -167,25 +166,8 @@ public class BoltjellyScript : Prop
         // 检查击中的是否是怪物,是的话将被击中的怪物困在原地一段时间
         if (other.gameObject.GetComponent<EnemyController>() != null)
         {
-            StartCoroutine(FreezeRigidbody(other.gameObject.GetComponent<Rigidbody2D>(), freezeTime));
+            other.gameObject.GetComponent<EnemyController>().ChangeHealth(damage, true);
         }
     }
 
-    // 冻结rigidbody2d函数
-    IEnumerator FreezeRigidbody(Rigidbody2D enemyRb, float duration)
-    {
-        // 保存原来的约束
-        RigidbodyConstraints2D originalConstraints = enemyRb.constraints;
-        Debug.Log("冻结\n");
-        // 固定 Rigidbody2D 位置和旋转
-        enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
-
-        // 等待一段时间
-        yield return new WaitForSeconds(duration);
-
-        Debug.Log("恢复移动\n");
-        // 恢复原来的约束
-        enemyRb.constraints = originalConstraints;
-        
-    }
 }

@@ -235,7 +235,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -296,13 +296,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  beginAction: 0
   moveSpeed: 200
   pursuitRange: {fileID: 8680965684735594434}
   attackRange: {fileID: 4831375880398421746}
   spurtForce: 100
   spurtTime: 30
   enemySprite: {fileID: 299609068781526958}
-  beginAction: 0
+  animator: {fileID: 0}
 --- !u!1 &8306823597582229817
 GameObject:
   m_ObjectHideFlags: 0

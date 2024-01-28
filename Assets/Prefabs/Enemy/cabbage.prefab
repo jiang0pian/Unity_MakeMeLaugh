@@ -164,7 +164,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 8
@@ -193,12 +193,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   currentHealth: 0
+  beginAction: 0
+  moveSpeed: 0
   jumpForce: 10
   jumpDurationTime: 2
   pursuitRange: {fileID: 4781648353692304527}
   attackRange: {fileID: 4687511968931728988}
   enemySprite: {fileID: 8578758705147007825}
-  beginAction: 0
 --- !u!114 &1881245857610994878
 MonoBehaviour:
   m_ObjectHideFlags: 0
