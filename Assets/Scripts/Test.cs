@@ -21,11 +21,11 @@ public class Test : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            InventoryManager.Instance.AddItemToInventory(testItem3, 1);
+            GameManager.Instance.isWin = true;
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            InventoryManager.Instance.ReduceItemInInventory(testItem1, 1);
+            GameManager.Instance.isLoose = true;
         }
         if (Input.GetKeyDown(KeyCode.K))
         {

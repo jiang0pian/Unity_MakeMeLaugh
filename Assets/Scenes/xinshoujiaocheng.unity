@@ -2993,6 +2993,7 @@ MonoBehaviour:
     isInCombinePanle: 0
     propIndex: 0
   TempSlot: {fileID: 348689729}
+  PropList: []
 --- !u!114 &348689731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3010,6 +3011,8 @@ MonoBehaviour:
   slotAmout: 36
   slotLists: []
   itemIntroduction: {fileID: 2128164334}
+  getRadomAwardPanel: {fileID: 0}
+  awardImage: {fileID: 0}
 --- !u!114 &348689732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5237,6 +5240,7 @@ GameObject:
   - component: {fileID: 831782410}
   - component: {fileID: 831782409}
   - component: {fileID: 831782408}
+  - component: {fileID: 831782413}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5404,6 +5408,21 @@ MonoBehaviour:
   playerSprite: {fileID: 224925499}
   playerAttribute: {fileID: 831782406}
   gameState: 0
+  isFrenchfrie: 0
+--- !u!114 &831782413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831782405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd824ff46c61f5448a2907e609423c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoose: 0
+  isWin: 0
 --- !u!1001 &869538156
 PrefabInstance:
   m_ObjectHideFlags: 0
