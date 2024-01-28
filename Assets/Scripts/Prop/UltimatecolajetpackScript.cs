@@ -60,7 +60,7 @@ public class UltimatecolajetpackScript : Prop
             if (attackDurationTimer < 0)
             {
                 attackDurationTimer = attackDurationTime;
-                ec.ChangeHealth(-5, true);
+                ec.ChangeHealth(-5, false);
                 Debug.Log("win");
             }
         }
