@@ -4,12 +4,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CarrotEnemy : MonoBehaviour
+public class CarrotEnemy : EnemyController
 {
     private new Rigidbody2D rigidbody2D;
 
-    public float maxHealth;
-    public float currentHealth;
     public float moveSpeed;
 
     private bool isFindPlayer;
@@ -67,7 +65,6 @@ public class CarrotEnemy : MonoBehaviour
                     {
                         rigidbody2D.AddForce(lookDirection * spurtForce);
                         animator.SetTrigger("spot");
-                   
                     }
                 }
                 attackTimer -= Time.deltaTime;
@@ -140,7 +137,7 @@ public class CarrotEnemy : MonoBehaviour
     //    Gizmos.DrawRay()
     //}
 
-    public void ChangeHealth(float damage, bool isCarbonicAcid)
+    public override void ChangeHealth(float damage, bool isCarbonicAcid)
     {
         currentHealth += damage;
         if (currentHealth < 0)
