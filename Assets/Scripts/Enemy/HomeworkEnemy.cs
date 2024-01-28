@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeworkEnemy : MonoBehaviour
+public class HomeworkEnemy : EnemyController
 {
     private new Rigidbody2D rigidbody2D;
 
-    public float maxHealth;
-    public float currentHealth;
     public float moveSpeed;
 
     private bool isFindPlayer;
@@ -152,7 +150,7 @@ public class HomeworkEnemy : MonoBehaviour
             
     }
 
-    public void ChangeHealth(float damage, bool isCarbonicAcid)
+    public override void ChangeHealth(float damage, bool isCarbonicAcid)
     {
         currentHealth += damage;
         if (currentHealth < 0)

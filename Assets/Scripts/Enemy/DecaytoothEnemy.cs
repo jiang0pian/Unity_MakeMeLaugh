@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecaytoothEnemy : MonoBehaviour
+public class DecaytoothEnemy : EnemyController
 {
     private new Rigidbody2D rigidbody2D;
 
-    public float maxHealth;
-    public float currentHealth;
     public float moveSpeed;
 
     private bool isFindPlayer;
@@ -140,7 +138,7 @@ public class DecaytoothEnemy : MonoBehaviour
     //    Gizmos.DrawRay()
     //}
 
-    public void ChangeHealth(float damage, bool isCarbonicAcid)
+    public override void ChangeHealth(float damage, bool isCarbonicAcid)
     {
         if(isCarbonicAcid == true)
         {
