@@ -13,8 +13,6 @@ public class CabbageEnemy : EnemyController
 
     private int jumpNum = 0;
 
-    private bool isFindPlayer;
-
     private Vector2 lookDirection;
 
     public Collider2D pursuitRange;

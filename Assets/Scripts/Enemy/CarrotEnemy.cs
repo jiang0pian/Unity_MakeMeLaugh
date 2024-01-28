@@ -9,7 +9,7 @@ public class CarrotEnemy : EnemyController
     private new Rigidbody2D rigidbody2D;
 
 
-    private bool isFindPlayer;
+
 
     private Vector2 lookDirection;
 

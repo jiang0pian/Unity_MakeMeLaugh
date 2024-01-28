@@ -9,6 +9,7 @@ public abstract class EnemyController : MonoBehaviour
     public float currentHealth;
     public bool beginAction = false;
     public float moveSpeed;
+    public bool isFindPlayer;
 
     public abstract void ChangeHealth(float damage, bool isCarbonicAcid);
 

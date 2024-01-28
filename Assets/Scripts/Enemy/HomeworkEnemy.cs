@@ -7,7 +7,6 @@ public class HomeworkEnemy : EnemyController
     private new Rigidbody2D rigidbody2D;
 
 
-    private bool isFindPlayer;
     private bool shouldAttack;
     private bool haveEscape;
 
