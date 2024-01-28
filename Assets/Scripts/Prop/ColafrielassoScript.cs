@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ColafrielassoScript : Prop
 {
-    public static ColafrielassoScript instance;
-
     public float attackDurationTime = 1f;
     private float attackDurationTimer = -1f;
 
@@ -14,14 +12,30 @@ public class ColafrielassoScript : Prop
     private float lassoDurationTimer = -1f;
 
     private GameObject attackRange;
+    private int count = 0;
+    private int i = 1;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
-        instance = this;
     }
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.
+        rb.position = PlayerController.Instance.GetComponent<Rigidbody2D>().position + new Vector2(0, 5);
+    }
     private void Update()
     {
+        count++;
+        if (count == 20) 
+        { 
+            count = 0;
+            i = -i;
+            this.GetComponent<Transform>().rotation = Quaternion.Euler(0, 90+90*i, 0); ;
+        }
+        rb.transform.position = PlayerController.Instance.transform.position + new Vector3(0, 5, 0);
         attackDurationTimer -= Time.deltaTime;
         lassoDurationTimer -= Time.deltaTime;
         if(lassoDurationTimer < 0)
