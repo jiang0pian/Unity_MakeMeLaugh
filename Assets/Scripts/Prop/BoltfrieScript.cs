@@ -10,7 +10,7 @@ public class BoltfrieScript : Prop
     private float distance = 0.0f;              // Boltfrie放置距离玩家的距离
     private Rigidbody2D rb;                     // Boltfrie的刚体
     private Collider2D coll;                    // Boltfrie的碰撞器
-    private float maxDragDistance = 5.0f;       // 最大持续时间
+    private float maxDragDistance = 10.0f;      // 最大持续时间
     private float coefficient = 10.0f;          // Boltfrie的发射力大小
     private float boltfireDamage = 2.0f;        // Boltfrie的伤害大小
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
