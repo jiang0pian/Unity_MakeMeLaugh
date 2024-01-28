@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
     public bool isUsingColajetpack = false;
     public bool isFly = false;
 
+    public float riseForce;
+    public float maxRiseSpeed;
+    public float riseForceUltimate;
+    public float maxRiseSpeedUltimate;
+
+    public bool isUltimate;
 
     public bool isSpurt = false;
     public Vector2 chongshengdian;
@@ -74,6 +80,14 @@ public class PlayerController : MonoBehaviour
         {
             //ColajetpackScript.instance.Fly();
             //调用道具的Fly（）函数
+            if(isUltimate == false)
+            {
+                Fly(riseForce, maxRiseSpeed);
+            }
+            else
+            {
+                Fly(riseForceUltimate, maxRiseSpeedUltimate);
+            }
         }
         if (transform.position.y < -70f)
         {
@@ -153,6 +167,14 @@ public class PlayerController : MonoBehaviour
             //    isDPressed = false;
 
             //}
+        }
+    }
+    public void Fly(float Force, float maxUpSpeed)
+    {
+        PlayerController.Instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1) * Force, ForceMode2D.Impulse);
+        if (PlayerController.Instance.GetComponent<Rigidbody2D>().velocity.y > maxUpSpeed)
+        {
+            PlayerController.Instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.Instance.GetComponent<Rigidbody2D>().velocity.x, maxUpSpeed);
         }
     }
     public void Jump()

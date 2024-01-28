@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColajetpackScript : Prop
+public class UltimatecolajetpackScript : Prop
 {
     public float riseForce = 20f;
     public float durationTime = 10f;
@@ -36,15 +36,6 @@ public class ColajetpackScript : Prop
         yield return new WaitForSeconds(durationTime);
         PlayerController.Instance.isUsingColajetpack = false;
         PlayerController.Instance.isFly = false;
-        PlayerController.Instance.isUltimate = false;
+        PlayerController.Instance.isUltimate = true;
     }
-
-    //public void Fly()
-    //{
-    //    PlayerController.Instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1)* riseForce, ForceMode2D.Impulse);
-    //    if(PlayerController.Instance.GetComponent<Rigidbody2D>().velocity.y > 30f)
-    //    {
-    //        PlayerController.Instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.Instance.GetComponent<Rigidbody2D>().velocity.x, 30f);
-    //    }
-    //}
 }
