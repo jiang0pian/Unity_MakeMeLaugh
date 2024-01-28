@@ -179,10 +179,21 @@ public class HomeworkEnemy : EnemyController
         yield return new WaitForSeconds(spurtTime * Time.deltaTime);
         isGetAttaack = false;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("attack"))
+        {
+            Debug.Log("¹¥»÷µ½ÑÀ³ÝÁË");
+            ChangeHealth(-3,false);
+            animator.SetTrigger("beida");
+
+        }
+    }
 
     public IEnumerator Fire()
     {
         animator.SetTrigger("isattack");
+
         //GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
         GameObject bullet;
         if (haveEscape == true)

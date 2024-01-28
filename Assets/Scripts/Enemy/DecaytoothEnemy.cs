@@ -173,4 +173,14 @@ public class DecaytoothEnemy : EnemyController
         yield return new WaitForSeconds(spurtTime * Time.deltaTime);
         isGetAttaack = false;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("attack"))
+        {
+            Debug.Log("π•ª˜µΩµ–»À¡À");
+            ChangeHealth(-3,false);
+            animator.SetTrigger("beida");
+        }
+    }
+
 }

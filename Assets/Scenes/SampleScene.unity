@@ -7216,6 +7216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47784aa9ac489b440b8aed97a0365776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody2D: {fileID: 0}
+  isFindPlayer: 0
+  lookDirection: {x: 0, y: 0}
+  moveTime: 2
+  moveTimer: -1
   enemySprite: {fileID: 401223870}
   enemyAttribute: {fileID: 0}
   animator: {fileID: 0}
@@ -11238,6 +11243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Homework
       objectReference: {fileID: 0}
+    - target: {fileID: 6039942276866668103, guid: b0781cfae3fc3f64cbbe43805fc3b1fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13603,7 +13612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6728772092099961094, guid: efdc0ecbf8483b44b8fe4cd49ce280e6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CabbageEnemy : EnemyController
+public class CabbageEnemy : MonoBehaviour
 {
     
     private new Rigidbody2D rigidbody2D;
 
+    public float maxHealth;
+    public float currentHealth;
     public float jumpForce = 50f;
 
     public float jumpDurationTime = 2f;
@@ -77,7 +79,7 @@ public class CabbageEnemy : EnemyController
         StartCoroutine(jump());
     }
 
-    public override void ChangeHealth(float damage, bool isCarbonicAcid)
+    public void ChangeHealth(float damage)
     {
         currentHealth += damage;
         if (currentHealth < 0)
