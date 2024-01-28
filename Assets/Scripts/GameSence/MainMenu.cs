@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public string mainGameScene;
     public static MainMenu Instance;
-    public List<GameObject> storys;
+    public List<GameObject> beginStorys;
     public int storyPlayedNumber;
     public Transform begin;
     public Transform end;
@@ -36,18 +36,18 @@ public class MainMenu : MonoBehaviour
     public void BeginPlayStory()
     {
         storyPlayedNumber = 0;
-        storys[0].SetActive(true);
-        storys[0].GetComponent<LerpMove>().BeginMove(begin, end);
+        beginStorys[0].SetActive(true);
+        beginStorys[0].GetComponent<LerpMove>().BeginMove(begin, end);
         storyPlayedNumber++;
         StartCoroutine(OnLeftButtonClick());
 
     }
     public void PlayNextStory()
     {        
-        storys[storyPlayedNumber].SetActive(true);
-        storys[storyPlayedNumber].GetComponent<LerpMove>().BeginMove(begin, end);
+        beginStorys[storyPlayedNumber].SetActive(true);
+        beginStorys[storyPlayedNumber].GetComponent<LerpMove>().BeginMove(begin, end);
         storyPlayedNumber++;
-        if (storyPlayedNumber < storys.Count)
+        if (storyPlayedNumber < beginStorys.Count)
         {
             StartCoroutine(OnLeftButtonClick());
         }

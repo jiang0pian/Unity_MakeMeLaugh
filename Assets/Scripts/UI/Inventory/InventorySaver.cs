@@ -27,6 +27,7 @@ public class InventorySaver : MonoBehaviour
                 inventoryItemList[i].isInBag = true;
                 slot.isContainedItem = true;
                 return inventoryItemList[i];
+                
             }
         }
         return InventorySaver.Instance.emptyItem;

@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainGameScene: SampleScene
-  beginStorys:
+  storys:
   - {fileID: 1837163769}
   - {fileID: 1481977605}
   - {fileID: 1268376946}
