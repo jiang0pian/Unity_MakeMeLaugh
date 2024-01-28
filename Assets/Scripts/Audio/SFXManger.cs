@@ -19,7 +19,7 @@ public class SFXManger : MonoBehaviour
     public void PlaySFXPiched(SFX soundEffect, float min, float max)
     {
         soundEffects[(int)soundEffect].pitch = UnityEngine.Random.Range(min, max);
-        PlaySFX(soundEffect);
+        PlaySFX(soundEffect);        
     }
     
 }
