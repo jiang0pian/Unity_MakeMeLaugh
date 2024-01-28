@@ -52,6 +52,8 @@ public class BoltfrieScript : Prop
             // 使薯条碰撞不可用，仅作为触发器
             coll = this.GetComponent<Collider2D>();
             coll.isTrigger = true;
+            // 旋转薯条
+            rb.transform.rotation = Quaternion.Euler(0, 0, -45);
             // 给薯条一个瞬时的朝向人物朝向的力，薯条不受重力影响，薯条不与其他碰撞体碰撞
             rb.AddForce(transform.right * coefficient* PlayerController.Instance.lookDirection.x, ForceMode2D.Impulse);
             // 启动一个协程调用，薯条如果飞出一段时间后还未被销毁，则自行销毁
