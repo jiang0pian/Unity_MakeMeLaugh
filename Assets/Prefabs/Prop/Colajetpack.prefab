@@ -52,7 +52,7 @@ MonoBehaviour:
   isStackable: 0
   itemInfo: 
   riseForce: 20
-  durationTime: 10
+  durationTime: 5
   animator: {fileID: 0}
 --- !u!212 &-2312877687013011698
 SpriteRenderer:
