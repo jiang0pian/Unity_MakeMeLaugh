@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loose.unity
     guid: 3b756954c2ab0a84890d5a2b04c8079d
+  - enabled: 1
+    path: Assets/Scenes/xinshoujiaocheng.unity
+    guid: 48d9b2d2b480bca469f0636a98e6fcea
   m_configObjects: {}

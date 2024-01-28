@@ -14,14 +14,6 @@ public class ColajetpackScript : Prop
     }
     private void Update()
     {
-        if (PlayerController.Instance.isUsingColajetpack)
-        {
-            animator.SetBool("penqibeibao", true);
-        }
-        else
-        {
-            animator.SetBool("penqibeibao", false);
-        }
     }
     public override void UseProp()
     {

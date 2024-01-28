@@ -96,6 +96,14 @@ public class PlayerController : MonoBehaviour
         {
           transform.position= chongshengdian;
         }
+        if (isUsingColajetpack)
+        {
+            animator.SetBool("penqi", true);
+        }
+        else
+        {
+            animator.SetBool("penqi", false);
+        }
     }
     private void FixedUpdate()
     {
