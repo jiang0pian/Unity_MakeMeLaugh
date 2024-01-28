@@ -8,12 +8,18 @@ public class UltimatecolajetpackScript : Prop
     public float durationTime = 10f;
     public Animator animator;
 
+    public float attackDurationTime = 1f;
+    private float attackDurationTimer = -1f;
+
+    private GameObject attackRange;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
     private void Update()
     {
+        attackDurationTimer -= Time.deltaTime;
         if (PlayerController.Instance.isUsingColajetpack)
         {
             animator.SetBool("penqibeibao", true);
@@ -22,20 +28,41 @@ public class UltimatecolajetpackScript : Prop
         {
             animator.SetBool("penqibeibao", false);
         }
+        if(attackRange != null)
+        {
+            attackRange.GetComponent<Rigidbody2D>().position = PlayerController.Instance.GetComponent<Rigidbody2D>().position;
+        }
     }
     public override void UseProp()
     {
 
         StartCoroutine(useColajetpack());
-
+        //attackRange = Instantiate(itemPrefab, PlayerController.Instance.GetComponent<Rigidbody2D>().position, Quaternion.identity);
     }
 
     public IEnumerator useColajetpack()
     {
+        attackRange = Instantiate(itemPrefab, PlayerController.Instance.GetComponent<Rigidbody2D>().position, Quaternion.identity);
         PlayerController.Instance.isUsingColajetpack = true;
         yield return new WaitForSeconds(durationTime);
         PlayerController.Instance.isUsingColajetpack = false;
         PlayerController.Instance.isFly = false;
         PlayerController.Instance.isUltimate = true;
+        Destroy(attackRange);
+        attackRange = null;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        EnemyController ec = collision.gameObject.GetComponent<EnemyController>();
+        if (ec != null)
+        {
+            if (attackDurationTimer < 0)
+            {
+                attackDurationTimer = attackDurationTime;
+                ec.ChangeHealth(-5, true);
+                Debug.Log("win");
+            }
+        }
     }
 }
