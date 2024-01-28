@@ -11,6 +11,7 @@ public class PlayerAttribute : MonoBehaviour
     public float currentHealth;
     public float moveSpeed;
     public float jumpForce;
+    public Animator animator;
 
     private void Awake()
     {

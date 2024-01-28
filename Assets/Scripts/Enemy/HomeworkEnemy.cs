@@ -36,6 +36,7 @@ public class HomeworkEnemy : MonoBehaviour
     public GameObject bulletPrefab;
 
     public bool beginAction = false;
+    public Animator animator;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class HomeworkEnemy : MonoBehaviour
     private void Start()
     {
         StartCoroutine(BeginAction());
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -182,6 +184,7 @@ public class HomeworkEnemy : MonoBehaviour
 
     public IEnumerator Fire()
     {
+        animator.SetTrigger("isattack");
         //GameObject bullet = Instantiate(bulletPrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
         GameObject bullet;
         if (haveEscape == true)

@@ -32,6 +32,7 @@ public class DecaytoothEnemy : MonoBehaviour
     public GameObject enemySprite;
 
     public bool beginAction = false;
+    public Animator animator;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class DecaytoothEnemy : MonoBehaviour
     private void Start()
     {
         StartCoroutine(BeginAction());
+        animator = GetComponent<Animator>();
     }
 
 
@@ -61,6 +63,7 @@ public class DecaytoothEnemy : MonoBehaviour
                     }
                     if (attackTimer > 3.5)
                     {
+                        animator.SetTrigger("attack");
                         rigidbody2D.AddForce(lookDirection * spurtForce);
                     }
                 }

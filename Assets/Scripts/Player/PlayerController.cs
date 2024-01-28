@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 1;
             
             if (getHitCounter > 0)
-            {
+            {   
                 getHitCounter -= Time.deltaTime;
             }
         }
@@ -174,10 +174,21 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Debug.Log(collision.gameObject.tag);
             Debug.Log("被攻击了");
             ChangeHealth(-1);
                 animator.SetTrigger("shouji");
+        }
+    }
+    private void OnCollisionrEnter2D(Collider2D collision)
+
+    {
+        Debug.Log("1");
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log("被攻击了");
+            ChangeHealth(-1);
+            animator.SetTrigger("shouji");
         }
     }
     private void GetKeyDown()
