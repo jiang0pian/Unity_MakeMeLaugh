@@ -32,8 +32,9 @@ public class CarrotEnemy : MonoBehaviour
     public float spurtTime = 30f;
 
     public GameObject enemySprite;
-
+    public Animator animator;
     public bool beginAction = false;
+
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class CarrotEnemy : MonoBehaviour
     private void Start()
     {
         StartCoroutine(BeginAction());
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -64,6 +66,8 @@ public class CarrotEnemy : MonoBehaviour
                     if (attackTimer > 3.5)
                     {
                         rigidbody2D.AddForce(lookDirection * spurtForce);
+                        animator.SetTrigger("spot");
+                   
                     }
                 }
                 attackTimer -= Time.deltaTime;

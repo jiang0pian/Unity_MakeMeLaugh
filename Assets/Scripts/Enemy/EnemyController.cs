@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     public GameObject enemySprite;
 
     public EnemyAttribute enemyAttribute;
+    public Animator animator;
 
     private void Awake()
     {

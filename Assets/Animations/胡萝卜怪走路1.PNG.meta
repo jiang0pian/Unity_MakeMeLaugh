@@ -290,48 +290,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: "\u80E1\u841D\u535C\u602A\u8D70\u8DEF1_4"
-      rect:
-        serializedVersion: 2
-        x: 2296
-        y: 2405
-        width: 6
-        height: 7
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0863d9cf81f9b4941aceba4d6fcf0579
-      internalID: -172886970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u80E1\u841D\u535C\u602A\u8D70\u8DEF1_5"
-      rect:
-        serializedVersion: 2
-        x: 2211
-        y: 2362
-        width: 5
-        height: 6
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb5e1b43fc544f341928b71ef63139c2
-      internalID: 2044257957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
