@@ -8,16 +8,12 @@ public class BoltfrieScript : Prop
 
 
     private float distance = 0.0f;              // Boltfrie放置距离玩家的距离
-    public Rigidbody2D anchor;                  // 锚点的刚体
     private Rigidbody2D rb;                     // Boltfrie的刚体
     private Collider2D coll;                    // Boltfrie的碰撞器
-    private bool isPressed;                     // 鼠标左键是否按下
-    private bool isCatapult;                    // Boltfrie是否被发射
-    private float maxDragDistance = 5.0f;       // 最大拉伸距离
-    private Vector2 mousePos;                   // 鼠标游戏内坐标
-    private float coefficient = 10.0f;          // Boltfrie的弹射系数
+    private float maxDragDistance = 5.0f;       // 最大持续时间
+    private float coefficient = 10.0f;          // Boltfrie的发射力大小
+    private float boltfireDamage = 2.0f;        // Boltfrie的伤害大小
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
-    public float detectionRadius = 5.0f;        // 检测半径
 
 
     // 覆写Prop类中的UseProp方法
@@ -48,127 +44,49 @@ public class BoltfrieScript : Prop
 
     private void Start()
     {
-        if (this.GetComponent<Rigidbody2D>() != null) rb = this.GetComponent<Rigidbody2D>();
-        coll = this.GetComponent<Collider2D>();
-        anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
-        //trailRenderer = this.GetComponent<TrailRenderer>();
-        rb.isKinematic = true;                          // 使Boltfrie运动状态变为不受外力
-        coll.isTrigger = true;                          // 使Boltfrie碰撞不可用，仅作为触发器
-        Cursor.visible = true;                          // 使光标可用
-        isPressed = false;
-        isCatapult = false;
+        if(GetComponent<Rigidbody2D>()!=null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+            // 确保不受重力影响
+            rb.gravityScale = 0;
+            // 使薯条碰撞不可用，仅作为触发器
+            coll = this.GetComponent<Collider2D>();
+            coll.isTrigger = true;
+            // 给薯条一个瞬时的朝向人物朝向的力，薯条不受重力影响，薯条不与其他碰撞体碰撞
+            rb.AddForce(transform.right * coefficient* PlayerController.Instance.lookDirection.x, ForceMode2D.Impulse);
+            // 启动一个协程调用，薯条如果飞出一段时间后还未被销毁，则自行销毁
+            StartCoroutine(DestroyAfterTime(maxDragDistance));
+        }
     }
     private void Update()
     {
-        if (rb != null)
-        {
-            // 每帧更新锚点
-            anchor = PlayerController.Instance.GetComponent<Rigidbody2D>();
-            if (Input.GetMouseButtonDown(0)) // 0 代表鼠标左键
-            {
-                // 当鼠标左键被按下时，执行一些操作
-                Debug.Log("鼠标在游戏内点击");
-                isPressed = true;
-                if (rb != null)
-                {
-                    rb.isKinematic = true;  //将球体设为仅运动学，让其不受外力作用，防止鼠标拖动的过程中弹飞
-                }
-            }
-            if (Input.GetMouseButtonUp(0)) // 0 代表鼠标左键
-            {
-                // 当鼠标左键被释放时，执行一些操作
-                Debug.Log("鼠标左键在游戏内被释放");
-                isPressed = false;
-                if (rb != null)
-                {
-                    rb.isKinematic = false;
-                    //trailRenderer.enabled = true;
-                    isCatapult = true;
-                    Catapult(rb);
-                    Cursor.visible = false;
-                }
-            }
-
-            if (!isPressed && !isCatapult)
-            {
-                // 开始瞄准前橡皮圈跟随玩家
-                //Debug.Log(gameObject.name+"未开始瞄准\n");
-                rb.position = anchor.position;
-            }
-            else if (isPressed && !isCatapult)
-            {
-                //Debug.Log(gameObject.name + "开始瞄准\n");
-                // 瞄准时始终在锚点范围内
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                if (Vector2.Distance(mousePos, anchor.position) > maxDragDistance)
-                {
-                    rb.position = (mousePos - anchor.position).normalized * maxDragDistance + anchor.position;
-                }
-                else
-                {
-                    rb.position = mousePos;
-                }
-                drawParabola();
-            }
-        }
+       
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (rb != null && isCatapult)
-        {
-            // 当其他非玩家物体进入触发器时，这个方法会被调用
-            if (Vector2.Distance(other.gameObject.transform.position, anchor.position) > maxDragDistance)
-            {
-                Debug.Log("触碰到其他触发器:" + other.gameObject.name + "\n");
-                PropEffect(rb);
-                Destroy(this.gameObject);
-            }
-        }
-    }
-
-
-    // 根据鼠标坐标和玩家坐标绘制预测抛物线
-    private void drawParabola()
-    {
-        //GameObject ball = new GameObject("DynamicBall");
-        //ball.layer = 9;
-        //// 添加 Rigidbody2D 组件
-        //Rigidbody2D temprb = ball.AddComponent<Rigidbody2D>();
-        //// 设置 Rigidbody2D 属性
-        //temprb.gravityScale = 1; // 根据需要调整重力影响
-        //// 添加 SpriteRenderer 组件以可视化小球
-        //Texture2D texture = new Texture2D(1, 1);
-        //texture.SetPixel(0, 0, Color.red);
-        //texture.Apply();
-        //Sprite newSprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        //SpriteRenderer renderer = ball.AddComponent<SpriteRenderer>();
-        //renderer.sprite = newSprite;
-        //// 设置小球的初始位置
-        //ball.transform.position = rb.position;
-        //Catapult(temprb);
-    }
-
-
-    // 发射rb
-    private void Catapult(Rigidbody2D rb_)
-    {
-        rb_.isKinematic = false; // 确保物体不是运动学的
-        rb_.gravityScale = 8;    // 确保重力影响开启
-        // 根据瞄准向量计算施加的力
-        Vector2 force = Mathf.Min(Vector2.Distance(mousePos, anchor.position), maxDragDistance) * coefficient * (anchor.position - mousePos).normalized;
-        rb_.AddForce(force, ForceMode2D.Impulse);
+        PropEffect(other);
     }
 
     // 道具生效后的效果实现
-    private void PropEffect(Rigidbody2D rb_)
+    private void PropEffect(Collider2D other)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(rb_.transform.position, detectionRadius, layerMask);
-        foreach (Collider2D collider in colliders)
+        // 如果碰到的是怪物，则对怪物造成伤害，但薯条穿过怪物继续飞行。怪物本身含有造成伤害的函数，直接调用。
+        // 如果触碰到tilemap，则主动销毁。
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GameObject detectedObject = collider.gameObject;
-            // 在这里处理检测到的对象，此处应为改变敌人的状态，使得他们向玩家聚集
-            // ...
+            // 调用怪物的受伤害方法
+            // 例如：other.GetComponent<Enemy>().TakeDamage(boltfireDamage);
         }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Environment"))
+        {
+            // 触碰到环境，销毁薯条
+            Destroy(gameObject);
+        }
+    }
+    IEnumerator DestroyAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }
