@@ -9,7 +9,7 @@ public class ColafrielassoScript : Prop
     private int i = 1;
     private Rigidbody2D rb;                     // Colafrielasso的刚体
     private Collider2D coll;                    // Colafrielasso的碰撞器
-    private float maxDragDistance = 10.0f;      // 最大持续时间
+    private float maxDragDistance = 5.0f;      // 最大持续时间
 
     public override void UseProp()
     {
@@ -37,8 +37,8 @@ public class ColafrielassoScript : Prop
     private void Start()
     {
         
-        rb.position = PlayerController.Instance.GetComponent<Rigidbody2D>().position + new Vector2(0, 5);
-        if (this.GetComponent<Rigidbody2D>() != null)
+        rb.position = PlayerController.Instance.GetComponent<Rigidbody2D>().position + new Vector2(0, 3);
+        if (GetComponent<Rigidbody2D>() != null)
         {
             rb = GetComponent<Rigidbody2D>();
             // 确保不受重力影响
@@ -51,6 +51,10 @@ public class ColafrielassoScript : Prop
             // 启动一个协程调用，薯条如果飞出一段时间后还未被销毁，则自行销毁
             StartCoroutine(DestroyAfterTime(maxDragDistance));
         }
+        else
+        {
+            Debug.Log("GetComponent<Rigidbody2D>() == null");
+        }
     }
     private void Update()
     {
@@ -59,9 +63,9 @@ public class ColafrielassoScript : Prop
         { 
             count = 0;
             i = -i;
-            rb.transform.rotation = Quaternion.Euler(0, 90+90*i, 0); ;
+            rb.transform.rotation = Quaternion.Euler(0, 90+90*i, 0);
         }
-        rb.transform.position = PlayerController.Instance.transform.position + new Vector3(0, 3, 0);
+        rb.position = PlayerController.Instance.GetComponent<Rigidbody2D>().position + new Vector2(0, 3);
     }
     
 
@@ -76,7 +80,7 @@ public class ColafrielassoScript : Prop
         if (other.gameObject.GetComponent<EnemyController>() != null)
         {
             // 调用怪物的激怒方法
-            other.gameObject.GetComponent<EnemyController>().isFindPlayer = false;
+            other.gameObject.GetComponent<EnemyController>().isFindPlayer = true;
         }
     }
 
