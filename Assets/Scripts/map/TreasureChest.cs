@@ -33,6 +33,7 @@ public class TreasureChest : MonoBehaviour
                 GetAppointAward();
             }
             Destroy(this.gameObject);
+            SFXManger.Instance.PlaySFXPiched(SFX.openAward, 0.9f, 1.1f);
         }
     }
 

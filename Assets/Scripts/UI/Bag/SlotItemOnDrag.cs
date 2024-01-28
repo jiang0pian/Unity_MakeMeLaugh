@@ -87,6 +87,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 }
 
                     gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                SFXManger.Instance.PlaySFXPiched(SFX.putOnBackpack, 0.9f, 1.1f);
             }
             //当目标点不为空，有Slot，且属于combine格子
             else if (eventData.pointerCurrentRaycast.isValid && eventData.pointerCurrentRaycast.gameObject.transform.parent.GetComponent<Slot>() != null && eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.name == "CombinePanel")
@@ -150,6 +151,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     }
                 }
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                SFXManger.Instance.PlaySFXPiched(SFX.putOnBackpack, 0.9f, 1.1f);
             }
             //当目标点不为空，有Slot，且属于prop格子
             else if (eventData.pointerCurrentRaycast.isValid && eventData.pointerCurrentRaycast.gameObject.transform.parent.GetComponent<Slot>() != null && eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.name == "PropGrid")
@@ -211,6 +213,7 @@ public class SlotItemOnDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                     }
                 }
                 gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                SFXManger.Instance.PlaySFXPiched(SFX.putOnBackpack, 0.9f, 1.1f);
             }
             //目标点为空或没有Slot
             else

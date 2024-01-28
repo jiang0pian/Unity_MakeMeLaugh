@@ -57,7 +57,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  detectionRadius: 5
   freezeTime: 3
 --- !u!50 &2166095482104083446
 Rigidbody2D:
@@ -85,7 +84,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &6812309346470651028
 SpriteRenderer:
   m_ObjectHideFlags: 0

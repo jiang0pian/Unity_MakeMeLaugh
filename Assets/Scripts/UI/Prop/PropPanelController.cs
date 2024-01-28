@@ -66,6 +66,7 @@ public class PropPanelController : MonoBehaviour
     {
         GameObject tempGameObject = Instantiate(PropSlots[index].containedItem.item.itemPrefab, clutterManager.transform);
         tempGameObject.GetComponent<Prop>().UseProp();
+        SFXManger.Instance.PlaySFXPiched(SFX.useProp, 0.9f, 1.1f);
         if (InventorySaver.Instance.inventoryItemList.Exists(x => (x.item == PropSlots[index].containedItem.item && x.propIndex==index+1)) == true)
         {
             Debug.Log("find it");

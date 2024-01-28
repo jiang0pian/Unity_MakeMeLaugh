@@ -191,6 +191,7 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         rigidbody2D.AddForce(transform.up * playerAttribute.jumpForce, ForceMode2D.Impulse);
+        SFXManger.Instance.PlaySFXPiched(SFX.jump, 0.9f, 1.1f);
     }
     public void ChangeHealth(float damage)
     {
@@ -218,6 +219,7 @@ public class PlayerController : MonoBehaviour
                 }
                 ChangeHealth(-1);
                 animator.SetTrigger("shouji");
+                SFXManger.Instance.PlaySFXPiched(SFX.playerGetHit, 0.9f, 1.1f);
                 getHitCounter = getHitTimeInterval;
             }
         }
@@ -239,6 +241,7 @@ public class PlayerController : MonoBehaviour
                 }
                 ChangeHealth(-1);
                 animator.SetTrigger("shouji");
+                SFXManger.Instance.PlaySFXPiched(SFX.playerGetHit, 0.9f, 1.1f);
                 getHitCounter = getHitTimeInterval;
             }
             
@@ -296,6 +299,10 @@ public class PlayerController : MonoBehaviour
             //ColajetpackScript.instance.UseProp();
             //BoltfrieScript.instance.UseProp();
             
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            SFXManger.Instance.PlaySFXPiched(SFX.mouseButtonDown, 0.9f, 1.1f);
         }
         //if (Input.GetKeyDown(KeyCode.A))
         //{

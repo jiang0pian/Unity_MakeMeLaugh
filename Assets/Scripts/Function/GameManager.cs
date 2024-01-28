@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     }
     public void Win()
     {
+        SFXManger.Instance.PlaySFX(SFX.Victory);
         SceneManager.LoadScene("Win");
     }
 }

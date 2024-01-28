@@ -20,19 +20,19 @@ public class SFXManger : MonoBehaviour
     {
         soundEffects[(int)soundEffect].pitch = UnityEngine.Random.Range(min, max);
         PlaySFX(soundEffect);
-    }    
+    }
+    
 }
 public enum SFX
 {
-    collectExp,
-    collectCoin,
-    enemyDie,
-    enemyGetHit,
-    playerLevelup,
-    weaponFire,
-    weponReloadPutIn,
-    weponReloadPutOut,
-    chooseUpGrade,
     playerGetHit,
-    dropReward
+    combine,
+    openAward,
+    openBag,
+    useProp,
+    putOnBackpack,
+    Victory,
+    move,
+    jump,
+    mouseButtonDown
 }

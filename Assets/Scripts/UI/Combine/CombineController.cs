@@ -43,6 +43,7 @@ public class CombineController : MonoBehaviour
     }
     public void Combine()
     {
+        SFXManger.Instance.PlaySFXPiched(SFX.mouseButtonDown, 0.9f, 1.1f);
         if (readyToCombine)
         {
             foreach (var slot in combineSlots)
@@ -55,6 +56,7 @@ public class CombineController : MonoBehaviour
             InventoryManager.Instance.AddItemToInventory(combineFormula.resultItem.item, 1);
             resultSlot.containedItem = InventorySaver.Instance.emptyItem;          
             resultSlot.isContainedItem = false;
+            SFXManger.Instance.PlaySFXPiched(SFX.combine, 0.9f, 1.1f);
         }        
     }
     public void RefreshCombineSlots()
