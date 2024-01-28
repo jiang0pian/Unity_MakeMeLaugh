@@ -11,7 +11,7 @@ public class SupercolafrieScript : Prop
     private Rigidbody2D rb;                     // Supercolafrie的刚体
     private Collider2D coll;                    // Supercolafrie的碰撞器
     private float maxDragDistance = 10.0f;      // 最大持续时间
-    private float coefficient = 10.0f;          // Supercolafrie的发射力大小
+    private float coefficient = 40.0f;          // Supercolafrie的发射力大小
     private float SupercolafrieDamage = 2.0f;   // Supercolafrie的伤害大小
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
     public float spurtForce = 1f;
@@ -38,6 +38,8 @@ public class SupercolafrieScript : Prop
             coll.isTrigger = true;
             // 给薯条一个瞬时的朝向人物朝向的力，薯条不受重力影响，薯条不与其他碰撞体碰撞
             rb.AddForce(-1*transform.right * coefficient * PlayerController.Instance.lookDirection.x, ForceMode2D.Impulse);
+            // 旋转薯条朝向飞行方向
+            rb.transform.rotation = Quaternion.Euler(0, 90-90* PlayerController.Instance.lookDirection.x, 47);
             // 启动一个协程调用，薯条如果飞出一段时间后还未被销毁，则自行销毁
             StartCoroutine(DestroyAfterTime(maxDragDistance));
         }
