@@ -69,8 +69,11 @@ public class ColajellynailScript : Prop
         if (otherRb != null)
         {
             Debug.Log("otherRb获取成功\n");
-            // 对怪物造成碳酸伤害，对玩家不造成伤害
-            // ...
+            if (otherRb.gameObject.GetComponent<EnemyController>() != null)
+            {
+                // 调用怪物的受伤害方法
+                otherRb.gameObject.GetComponent<EnemyController>().ChangeHealth(ColajellynailDamage, true);
+            }
         }
         else
         {

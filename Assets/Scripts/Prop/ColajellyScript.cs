@@ -67,12 +67,13 @@ public class ColajellyScript : Prop
         Rigidbody2D otherRb = collision.collider.GetComponent<Rigidbody2D>();
         if (otherRb != null)
         {
-            Debug.Log("otherRb获取成功\n");
-
-            // 施加瞬时力
-            otherRb.AddForce(new Vector2(0, jellyForce), ForceMode2D.Impulse);
-            Destroy(otherRb.gameObject);
-
+            Debug.Log("otherRb=" + otherRb.gameObject.name + "\n");
+            if(otherRb.gameObject.name!="Tilemap")
+            {
+                // 施加瞬时力
+                otherRb.AddForce(new Vector2(0, jellyForce), ForceMode2D.Impulse);
+                Destroy(this.gameObject);
+            }
             //// 获取入射速度向量
             //Vector2 incomingVector = otherRb.velocity;
             //Debug.Log("incomingVector = (" + incomingVector.x + "," + incomingVector.y + ")\n");
