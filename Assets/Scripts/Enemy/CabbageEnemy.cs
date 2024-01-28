@@ -35,10 +35,6 @@ public class CabbageEnemy : MonoBehaviour
     private void Start()
     {
         StartCoroutine(BeginAction());
-        if (beginAction == true)
-        {
-            StartCoroutine(jump());
-        }
     }
 
     private void Update()
@@ -99,6 +95,7 @@ public class CabbageEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         beginAction = true;
+        StartCoroutine(jump());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
