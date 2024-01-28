@@ -75,10 +75,10 @@ public class BoltfrieScript : Prop
     {
         // 如果碰到的是怪物，则对怪物造成伤害，但薯条穿过怪物继续飞行。怪物本身含有造成伤害的函数，直接调用。
         // 如果触碰到tilemap，则主动销毁。
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.GetComponent<EnemyController>()!=null)
         {
             // 调用怪物的受伤害方法
-            // 例如：other.GetComponent<Enemy>().TakeDamage(boltfireDamage);
+            other.gameObject.GetComponent<EnemyController>().ChangeHealth(boltfireDamage, false);
         }
         else if (other.gameObject.layer == 6)
         {

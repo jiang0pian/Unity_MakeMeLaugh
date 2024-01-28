@@ -17,7 +17,8 @@ public class BoltmentosScript : Prop
     private Vector2 mousePos;                   // 鼠标游戏内坐标
     private float coefficient = 15.0f;          // Boltmentos的弹射系数
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
-    public float detectionRadius = 5.0f;        // 检测半径
+    public float BoltmentosDamage = 1.0f;       // Boltmentos造成的伤害大小
+    public float BoltmentosSpeedBuff = 1.5f;    // Boltmentos给怪物增加的移速buff倍数
 
 
     // 覆写Prop类中的UseProp方法
@@ -163,8 +164,29 @@ public class BoltmentosScript : Prop
     // 道具生效后的效果实现
     private void PropEffect(Collider2D other)
     {
-        // 检查击中的是否是怪物,是的话造成少量伤害，使被击中的怪物移速变快
-        // ...
+        // 检查击中的是否是怪物
+        if (other.gameObject.GetComponent<EnemyController>() != null)
+        {
+            // 造成少量伤害
+            other.gameObject.GetComponent<EnemyController>().ChangeHealth(BoltmentosDamage, false);
+            // 使被击中的怪物移速变快
+            //other.gameObject.GetComponent<EnemyController>().moveSpeed *= buff;
+        }
 
     }
+
+    //IEnumerator FreezeRigidbody(Rigidbody2D enemyRb, float duration)
+    //{
+    //    // 保存原来的约束
+    //    RigidbodyConstraints2D originalConstraints = enemyRb.constraints;
+
+    //    // 固定 Rigidbody2D 位置和旋转
+    //    enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+    //    // 等待一段时间
+    //    yield return new WaitForSeconds(duration);
+
+    //    // 恢复原来的约束
+    //    enemyRb.constraints = originalConstraints;
+    //}
 }

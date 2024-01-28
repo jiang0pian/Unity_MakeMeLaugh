@@ -18,6 +18,7 @@ public class BoltjellyScript : Prop
     private float coefficient = 5.0f;           // Boltjelly的弹射系数
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
     public float detectionRadius = 5.0f;        // 检测半径
+    public float freezeTime = 3.0f;             // 怪物在原地被困住的时长
 
 
     // 覆写Prop类中的UseProp方法
@@ -164,7 +165,25 @@ public class BoltjellyScript : Prop
     private void PropEffect(Collider2D other)
     {
         // 检查击中的是否是怪物,是的话将被击中的怪物困在原地一段时间
-        // ...
+        if (other.gameObject.GetComponent<EnemyController>() != null)
+        {
+            StartCoroutine(FreezeRigidbody(other.gameObject.GetComponent<Rigidbody2D>(), freezeTime));
+        }
+    }
 
+    // 冻结rigidbody2d函数
+    IEnumerator FreezeRigidbody(Rigidbody2D enemyRb, float duration)
+    {
+        // 保存原来的约束
+        RigidbodyConstraints2D originalConstraints = enemyRb.constraints;
+
+        // 固定 Rigidbody2D 位置和旋转
+        enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        // 等待一段时间
+        yield return new WaitForSeconds(duration);
+
+        // 恢复原来的约束
+        enemyRb.constraints = originalConstraints;
     }
 }
