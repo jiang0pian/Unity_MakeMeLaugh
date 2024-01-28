@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Application.isEditor)
         {
-            //UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
         }
         else
         {
@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
     public IEnumerator StoryEnd()
     {
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0) && isButtonResealed==true);
-        SceneManager.LoadScene("xinshoujiaocheng");
+        SceneManager.LoadScene("xinshou");
     }
     public IEnumerator OnLeftButtonClick()
     {

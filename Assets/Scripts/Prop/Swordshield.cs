@@ -8,5 +8,12 @@ public class Swordshield : Prop
     {
         PlayerController.Instance.isFrenchfrie = true;
         PlayerController.Instance.isShiled = true;
+        StartCoroutine(Frenchfrie());
+    }
+
+    public IEnumerator Frenchfrie()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PlayerController.Instance.isFrenchfrie = false;
     }
 }
