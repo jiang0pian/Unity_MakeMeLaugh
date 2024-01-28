@@ -44,7 +44,7 @@ public class BoltfrieScript : Prop
 
     private void Start()
     {
-        if(GetComponent<Rigidbody2D>()!=null)
+        if(this.GetComponent<Rigidbody2D>()!=null)
         {
             rb = GetComponent<Rigidbody2D>();
             // 确保不受重力影响
