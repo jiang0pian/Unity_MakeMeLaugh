@@ -27,6 +27,10 @@ public class Test : MonoBehaviour
         {
             InventoryManager.Instance.ReduceItemInInventory(testItem1, 1);
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            InventoryManager.Instance.GetRadomProp(3);
+        }
         InventoryManager.Instance.RefreshItemInBag();
         InventoryManager.Instance.RefreshBagSlotAmount();
         CombineController.Instance.TryToCombine();

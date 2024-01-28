@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public PlayerAttribute playerAttribute;
 
     public GameState gameState;
+
+    public bool isFrenchfrie;
       void Start () {
         animator = GetComponent<Animator>();
       }
