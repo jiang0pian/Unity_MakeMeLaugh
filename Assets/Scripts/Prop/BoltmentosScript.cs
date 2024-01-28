@@ -19,6 +19,7 @@ public class BoltmentosScript : Prop
     public LayerMask layerMask = 8;             // 在Unity编辑器中设置你想检测的Layer
     public float BoltmentosDamage = 1.0f;       // Boltmentos造成的伤害大小
     public float BoltmentosSpeedBuff = 1.5f;    // Boltmentos给怪物增加的移速buff倍数
+    public float buffTime = 3.0f;               // buff持续时间
 
 
     // 覆写Prop类中的UseProp方法
@@ -170,23 +171,18 @@ public class BoltmentosScript : Prop
             // 造成少量伤害
             other.gameObject.GetComponent<EnemyController>().ChangeHealth(BoltmentosDamage, false);
             // 使被击中的怪物移速变快
-            //other.gameObject.GetComponent<EnemyController>().moveSpeed *= buff;
+            StartCoroutine(SpeedBuff(other.gameObject.GetComponent<EnemyController>(), buffTime));
         }
 
     }
 
-    //IEnumerator FreezeRigidbody(Rigidbody2D enemyRb, float duration)
-    //{
-    //    // 保存原来的约束
-    //    RigidbodyConstraints2D originalConstraints = enemyRb.constraints;
-
-    //    // 固定 Rigidbody2D 位置和旋转
-    //    enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
-
-    //    // 等待一段时间
-    //    yield return new WaitForSeconds(duration);
-
-    //    // 恢复原来的约束
-    //    enemyRb.constraints = originalConstraints;
-    //}
+    IEnumerator SpeedBuff(EnemyController enemy, float duration)
+    {
+        // 加上速度buff
+        enemy.moveSpeed *= BoltmentosSpeedBuff;
+        // 等待一段时间
+        yield return new WaitForSeconds(duration);
+        // 恢复速度
+        enemy.moveSpeed /= BoltmentosSpeedBuff;
+    }
 }

@@ -8,7 +8,7 @@ public abstract class EnemyController : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public bool beginAction = false;
-    public bool moveSpeed;
+    public float moveSpeed;
 
     public abstract void ChangeHealth(float damage, bool isCarbonicAcid);
 
