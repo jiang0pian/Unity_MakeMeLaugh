@@ -74,14 +74,14 @@ public class CarrotEnemy : EnemyController
 
     void Move()
     {
-        //ÒÆ¶¯Ä£Ê½
+        //ï¿½Æ¶ï¿½Ä£Ê½
         if (isFindPlayer == true)
         {
             AttackMove();
         }
         else
         {
-            //¼ì²âÍæ¼Ò
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             //RaycastHit2D hitForward = Physics2D.Raycast(rigidbody2D.position, lookDirection, 1000f, LayerMask.GetMask("Player"));
             //Debug.DrawRay(rigidbody2D.position, lookDirection * 1000f, Color.red);
             //RaycastHit2D hitBack = Physics2D.Raycast(rigidbody2D.position, lookDirection * -1, 1000f, LayerMask.GetMask("Player"));
@@ -105,7 +105,7 @@ public class CarrotEnemy : EnemyController
 
     void IdleMove()
     {
-        //Ñ²ÂßÒÆ¶¯
+        //Ñ²ï¿½ï¿½ï¿½Æ¶ï¿½
         if (moveTimer < 0)
         {
             moveTimer = moveTime;
@@ -119,7 +119,7 @@ public class CarrotEnemy : EnemyController
 
     void AttackMove()
     {
-        //¹¥»÷ÒÆ¶¯
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         if (transform.position.x < PlayerController.Instance.transform.position.x)
         {
             lookDirection.x = 1;
@@ -169,5 +169,13 @@ public class CarrotEnemy : EnemyController
         rigidbody2D.AddForce((lookDirection * -1 + new Vector2(0, 1)) * 400);
         yield return new WaitForSeconds(spurtTime * Time.deltaTime);
         isGetAttaack = false;
+    }
+        private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("attack"))
+        {
+            ChangeHealth(-3,false);
+            animator.SetTrigger("beida");
+        }
     }
 }

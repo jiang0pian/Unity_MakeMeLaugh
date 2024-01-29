@@ -83,7 +83,7 @@ public class HomeworkEnemy : EnemyController
 
     void Move()
     {
-        //ÒÆ¶¯Ä£Ê½
+        //ï¿½Æ¶ï¿½Ä£Ê½
         if (isFindPlayer == true)
         {
             AttackMove();
@@ -106,7 +106,7 @@ public class HomeworkEnemy : EnemyController
 
     void IdleMove()
     {
-        //Ñ²ÂßÒÆ¶¯
+        //Ñ²ï¿½ï¿½ï¿½Æ¶ï¿½
         if (moveTimer < 0)
         {
             moveTimer = moveTime;
@@ -150,9 +150,9 @@ public class HomeworkEnemy : EnemyController
     public override void ChangeHealth(float damage, bool isCarbonicAcid)
     {
         currentHealth += damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            Destroy(gameObject);
         }
         else if (currentHealth > maxHealth)
         {
@@ -180,7 +180,7 @@ public class HomeworkEnemy : EnemyController
     {
         if (collision.gameObject.CompareTag("attack"))
         {
-            Debug.Log("¹¥»÷µ½ÑÀ³ÝÁË");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             ChangeHealth(-3,false);
             animator.SetTrigger("beida");
 
@@ -212,4 +212,5 @@ public class HomeworkEnemy : EnemyController
             Destroy(bullet);
         }
     }
+    
 }

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool isSpurt = false;
     public Vector2 chongshengdian;
 
-    //ÈËÎï³¯Ïò
+    //ï¿½ï¿½ï¿½ï³¯ï¿½ï¿½
     public Vector2 lookDirection;
 
     public Animator animator;
@@ -64,9 +64,10 @@ public class PlayerController : MonoBehaviour
                 getHitCounter -= Time.deltaTime;
             }
         }
-        else if (gameState == GameState.Pause)
+                if(Input.GetKeyDown(KeyCode.R))
         {
-            Time.timeScale = 0;
+animator.SetTrigger("shutiao");
+
         }
         if(isMoving){ 
             animator.SetBool("walk", true);
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
         if(isFly == true)
         {
             //ColajetpackScript.instance.Fly();
-            //µ÷ÓÃµÀ¾ßµÄFly£¨£©º¯Êý
+            //ï¿½ï¿½ï¿½Ãµï¿½ï¿½ßµï¿½Flyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if(isUltimate == false)
             {
                 Fly(riseForce, maxRiseSpeed);
@@ -145,7 +146,7 @@ public class PlayerController : MonoBehaviour
                 //    rigidbody2D.velocity += new Vector2(1 * playerAttribute.moveSpeed, 0);
                 //}
                 playerSprite.transform.localScale = new Vector3(Mathf.Abs(playerSprite.transform.localScale.x), playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
-                //¸üÐÂÈËÎï³¯Ïò
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï³¯ï¿½ï¿½
                 lookDirection.x = 1f;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0f)
@@ -161,7 +162,7 @@ public class PlayerController : MonoBehaviour
                 //    rigidbody2D.velocity += new Vector2(-1 * playerAttribute.moveSpeed, 0);
                 //}
                 playerSprite.transform.localScale = new Vector3(-1 * Mathf.Abs(playerSprite.transform.localScale.x), playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
-                //¸üÐÂÈËÎï³¯Ïò
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï³¯ï¿½ï¿½
                 lookDirection.x = -1f;
             }
 
@@ -214,7 +215,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("±»¹¥»÷ÁË");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             if (getHitCounter <= 0)
             {
                 if (isShiled==true)
@@ -236,7 +237,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("±»¹¥»÷ÁË");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             if (getHitCounter <= 0)
             {
                 if (isShiled == true)
@@ -288,7 +289,7 @@ public class PlayerController : MonoBehaviour
         {
             BagController.Instance.OpenAndCloseBag();
         }
-        //°´ÏÂ F ¼ü
+        //ï¿½ï¿½ï¿½ï¿½ F ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.F) && isSpurt == false)
         {
             //StartCoroutine(ColarScript.Instance.Spurt());

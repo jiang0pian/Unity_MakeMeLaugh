@@ -98,16 +98,16 @@ public class CabbageEnemy : EnemyController
     {
         if(GetComponent<PhysicsCheck>().isOnGround == true && attackRange.OverlapPoint(PlayerController.Instance.transform.position))
         {
-            //╤тмФ╪ртЛЁиик╨╕...................
-            Debug.Log("╤тмФ╪ртЛЁиакик╨╕");
+            //О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫к╨О©╫...................
+            Debug.Log("О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫к╨О©╫");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("attack"))
         {
-            Debug.Log("╧╔╩В╣╫╣пхкак");
-            //ChangeHealth(-3);
+            Debug.Log("О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+            ChangeHealth(-3,false);
         }
     }
 

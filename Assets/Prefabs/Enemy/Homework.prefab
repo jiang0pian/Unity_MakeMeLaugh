@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 5442470752973193608}
   - component: {fileID: 8080500232772514818}
   - component: {fileID: 2541534408344051552}
+  - component: {fileID: 5009842241981184157}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: enemy
@@ -300,6 +301,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5009842241981184157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3423653686324663261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b68a77c5a6a094b9a5d34d9243c771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3649813643683467638
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 6039942276866668103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.99, y: -9.659, z: 0}
+  m_LocalPosition: {x: 274.7, y: -7.1, z: 0}
   m_LocalScale: {x: 0.4459974, y: 0.4459974, z: 0.4459974}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -500,9 +513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dab39964676f34a8f7158c856bd63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 3
+  currentHealth: 3
+  beginAction: 0
   moveSpeed: 50
+  isFindPlayer: 0
   pursuitRange: {fileID: 3233263753858562227}
   attackRange: {fileID: 4015552053840004056}
   escapeRange: {fileID: 8589683083190437251}
@@ -510,7 +525,6 @@ MonoBehaviour:
   bulletDurationTime: 1500
   enemySprite: {fileID: 3649813643683467638}
   bulletPrefab: {fileID: 3423653686324663261}
-  beginAction: 0
   animator: {fileID: 0}
 --- !u!95 &7636069987770622919
 Animator:
